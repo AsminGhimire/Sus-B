@@ -37,26 +37,7 @@
             position: relative;
         }
 
-        /* Ambient Music Control Bar */
-        .music-controller-bar {
-            text-align: center;
-            background: #20010b;
-            color: #ffd700;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 12px;
-            border-bottom: 2px solid #00ffcc;
-            cursor: pointer;
-            z-index: 10003;
-            position: relative;
-            animation: pulseMusicBar 2s infinite alternate;
-        }
-        @keyframes pulseMusicBar {
-            0% { background: #20010b; box-shadow: inset 0 0 5px #ff4d5a; }
-            100% { background: #4a0216; box-shadow: inset 0 0 15px #00ffcc; }
-        }
-
-        /* Ambient Love Header Bar */
+        /* Ambient Love Header Bar - Fixed Layout To Prevent Hiding Items on Scroll */
         .ambient-badge {
             display: none;
             text-align: center;
@@ -68,19 +49,17 @@
             border-bottom: 2px solid #f40009;
             letter-spacing: 0.5px;
             backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
+            position: relative; /* Fixed overlap issue */
             z-index: 10001;
         }
 
-        /* Clean Mobile Navigation Bar */
+        /* Clean Mobile Navigation Bar - Fixed Tracking Overlaps */
         .top-navbar {
             display: none;
             justify-content: space-around;
             background: rgba(12, 1, 5, 0.98);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: sticky;
-            top: 45px; 
+            position: relative; /* Lowered focus tier to protect page items from hiding */
             z-index: 10000;
             padding: 12px 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.8);
@@ -489,11 +468,7 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            animation: spinCore 4s linear infinite;
             margin: 15px 0;
-        }
-        @keyframes spinCore {
-            100% { transform: rotate(360deg); }
         }
         .clicker-reactor-core:active {
             transform: scale(0.92);
@@ -605,6 +580,7 @@
             border-radius: 10px;
             cursor: pointer;
             user-select: none;
+            text-align: center;
         }
         .control-btn:active {
             background: #00ffcc;
@@ -744,19 +720,10 @@
         }
     </style>
 </head>
-<body>
+<body onclick="initAudioFallback()">
 
     <!-- TIMELESS DATED HEADER GRID BANNER -->
     <div class="date-badge">✨ SUSHMITA'S GOLDEN 26TH BIRTHDAY • 16 JUNE 2026 ✨</div>
-
-    <!-- AUDIO CONTROLLER BAR WITH MUSIC ICON PULSE -->
-    <div class="music-controller-bar" id="music-indicator" onclick="startMusic()">🎵 Tap to Turn On Birthday Music 🎵</div>
-
-    <!-- RE-ENGINEERED MELODIOUS AUDIO PATHWAY FOR MAXIMUM COMPATIBILITY -->
-    <audio id="bg-music" loop preload="auto" crossorigin="anonymous">
-        <source src="https://assets.mixkit.co/active_storage/sfx/123/123-100.wav" type="audio/wav">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
 
     <!-- FLOATING TOP DECORATOR BADGE -->
     <div class="ambient-badge" id="ambient-love-line">
@@ -805,28 +772,28 @@
         <p class="page-subtitle">Happy 26th Birthday to the prettiest girl • 16 June 2026</p>
 
         <div class="photo-card">
-            <img src="3.jpg.jpg" alt="Sushmita">
+            <img src="3.jpg.jpg" alt="Sushmita" onerror="this.src='https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500'">
             <div class="photo-desc">
                 <h3>मेरी प्यारी माया 👑</h3>
                 <p>You look absolutely beautiful in this picture. My absolute favorite view.</p>
             </div>
         </div>
         <div class="photo-card">
-            <img src="5.jpg.jpg" alt="Sushmita">
+            <img src="5.jpg.jpg" alt="Sushmita" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500'">
             <div class="photo-desc">
                 <h3>Pure Happiness ❤️</h3>
                 <p>Your smile makes every single day bright and completely perfect.</p>
             </div>
         </div>
         <div class="photo-card">
-            <img src="7.jpg.jpg" alt="Sushmita">
+            <img src="7.jpg.jpg" alt="Sushmita" onerror="this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500'">
             <div class="photo-desc">
                 <h3>Better Together 🔒</h3>
                 <p>Holding your hand is the best feeling in the entire world.</p>
             </div>
         </div>
         <div class="photo-card">
-            <img src="8.jpg.jpg" alt="Sushmita">
+            <img src="8.jpg.jpg" alt="Sushmita" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500'">
             <div class="photo-desc">
                 <h3>Forever Yours ✨</h3>
                 <p>Every beautiful thought in my mind belongs strictly to you.</p>
@@ -924,575 +891,547 @@
                     <div class="clicker-label" id="reactor-score-node">TAP!</div>
                 </div>
                 <div class="progress-bar-wrap">
-                    <div class="progress-bar-fill" id="reactor-progress-bar"></div>
+                    <div class="progress-bar-fill" id="reactor-bar"></div>
                 </div>
-                <div class="arcade-status-msg" id="rush-msg">Score: 0 / 26</div>
+                <button class="arcade-action-btn" onclick="resetReactorGame()" style="margin-top:15px;">Reset Core 🔄</button>
+                <div class="arcade-status-msg" id="rush-msg"></div>
             </div>
 
-            <!-- GAME 3: SLIDING PUZZLE -->
-            <div id="sub-game-puzzle" class="game-subview">
-                <div class="game-title-neon">BLOCK MATRIX</div>
-                <div class="game-help-text">Tap the mixed block to snap the grid together!</div>
-                <div class="puzzle-grid" id="arcade-puzzle-board"></div>
-                <button class="arcade-action-btn" onclick="initBlockPuzzle()">Reset Grid 🔄</button>
+            <!-- GAME 3: SLIDER PUZZLE -->
+            <div id="sub-game-puz" class="game-subview">
+                <div class="game-title-neon">MATRIX SLIDE</div>
+                <div class="game-help-text">Arrange the elements numerical order (1 to 8)!</div>
+                <div class="puzzle-grid" id="puzzle-grid-board"></div>
+                <button class="arcade-action-btn" onclick="initPuzzleGame()" style="margin-top:15px;">Shuffle 🔄</button>
                 <div class="arcade-status-msg" id="puzzle-msg"></div>
             </div>
 
-            <!-- GAME 4: WORD SUDOKU -->
-            <div id="sub-game-sudoku" class="game-subview">
-                <div class="game-title-neon">WORD SUDOKU</div>
-                <div class="game-help-text">Fill the 2 empty blanks with letters 'E' or 'A'!</div>
-                <div class="sudoku-grid" id="arcade-sudoku-board"></div>
-                <button class="arcade-action-btn" onclick="checkSudokuSolution()">Check Answers 🔓</button>
+            <!-- GAME 4: WORD GRID -->
+            <div id="sub-game-sud" class="game-subview">
+                <div class="game-title-neon">LOVE MATRIX</div>
+                <div class="game-help-text">Complete the magic word: H-E-A-R-T</div>
+                <div class="sudoku-grid" id="sudoku-grid-board"></div>
+                <button class="arcade-action-btn" onclick="checkSudokuWin()" style="margin-top:15px;">Verify Answer ✅</button>
                 <div class="arcade-status-msg" id="sudoku-msg"></div>
             </div>
 
-            <!-- GAME 5: LOVE CATCHER HIGH SPEED CHALLENGE -->
-            <div id="sub-game-catcher" class="game-subview">
-                <div class="game-title-neon">CATCH 26 HEARTS</div>
-                <div class="game-help-text">Can you track down 26 falling tokens for your 26th year? Tap sides or arrows!</div>
+            <!-- GAME 5: LOVE CATCHER -->
+            <div id="sub-game-cth" class="game-subview">
+                <div class="game-title-neon">HEART CATCHER</div>
+                <div class="game-help-text">Catch 10 falling items! Tap/Click canvas sides or arrows to steer.</div>
                 <canvas id="catcher-canvas" width="240" height="240"></canvas>
-                
                 <div class="catcher-controls">
-                    <button class="control-btn" id="btn-move-left" onmousedown="startCatcherMove(-15)" ontouchstart="startCatcherMove(-15)" onmouseup="stopCatcherMove()" ontouchend="stopCatcherMove()">◀ Left</button>
-                    <button class="control-btn" id="btn-move-right" onmousedown="startCatcherMove(15)" ontouchstart="startCatcherMove(15)" onmouseup="stopCatcherMove()" ontouchend="stopCatcherMove()">Right ▶</button>
+                    <div class="control-btn" onclick="moveCatcherPaddle(-25)">◀</div>
+                    <div class="control-btn" onclick="moveCatcherPaddle(25)">▶</div>
                 </div>
-                <button class="arcade-action-btn" onclick="initCatcherGame()">Restart Run 🎮</button>
-                <div class="arcade-status-msg" id="catcher-msg">Score: 0 / 26</div>
+                <div class="arcade-status-msg" id="catch-msg">Score: 0 / 10</div>
             </div>
+
         </div>
     </div>
 
-    <!-- BOTTOM FIXED FOOTER ACTION CONTAINER -->
-    <div class="love-footer-wrap" id="love-footer">
-        <button onclick="handleLoveFooterClick()">Asmin Loves You Forever 👑</button>
+    <!-- GLOBAL SHOWER INTERACTIVE FOOTER -->
+    <div class="love-footer-wrap" id="global-footer">
+        <button onclick="launchShowerEngine()">💖 Shower Sushmita with Hearts 💖</button>
     </div>
 
     <script>
-        let globalShowerInterval;
-        let puzState = [1, 2, 3, 4, 5, 6, 7, "", 8]; 
-        let clickerScore = 0;
-        let currentReasonIdx = 0;
+        /* --- GLOBAL CONSTANTS & ROUTING --- */
+        const SECRETPHRASE = "asmin"; 
+        let audioContext = null;
+        let toneSequencerTimer = null;
 
-        const reasonsList = [
-            "1. Your beautiful maturity as you turn 26 completely inspires me.",
-            "2. The way your smile instantly eliminates all my stress.",
-            "3. Your loyalty and genuine soul make me the luckiest person.",
-            "4. How drop-dead gorgeous you look in your photos.",
-            "5. Your cute, fun TikTok ideas that showcase your real personality.",
-            "6. The adorable way you drink cold Coke and enjoy life's small treats.",
-            "7. Your warm heart that cares so profoundly for us.",
-            "8. Because age 26 looks absolutely breathtaking on you.",
-            "9. You are not just my love, you are my safe space and my home.",
-            "10. The graceful way you tackle challenges and keep moving forward.",
-            "11. Your laughter is my favorite song in the entire universe.",
-            "12. You make our shared plans feel completely magical.",
-            "13. Your eyes hold an entire world of peace that I never want to leave.",
-            "14. The endless patience you show me every single day.",
-            "15. You make a simple cup of tea and samosa feel like a 5-star date.",
-            "16. Because you are perfectly, uniquely, beautifully you.",
-            "17. Your kindness radiates and makes everyone around you happy.",
-            "18. The way my hand fits flawlessly into yours.",
-            "19. You support my biggest ambitions without hesitation.",
-            "20. You have grown into an exceptional, independent woman.",
-            "21. Every single memory we compile gets better over time.",
-            "22. You look gorgeous even when you are just resting.",
-            "23. Your embrace makes the entire world's noise fade to zero.",
-            "24. You represent my past, my absolute present, and my 2026 future.",
-            "25. You are my true soulmate in every definition of the word.",
-            "26. I love you more at 26 than I ever thought humanly possible! ❤️"
+        const dynamicReasons = [
+            "Your beautiful smile completely brightens my entire world.",
+            "You have the most generous heart I have ever known.",
+            "The way you care for me feels like coming home.",
+            "Your laughter is my absolute favorite sound in existence.",
+            "You inspire me to become a better version of myself daily.",
+            "How incredibly stunning you look every single day.",
+            "Your cute TikTok drafts make me smile without fail.",
+            "The effortless warmth you share whenever I hold your hand.",
+            "You accept me completely for exactly who I am.",
+            "Your resilience and strength amaze me continuously.",
+            "The unmatched happiness of sharing an ice-cold Coke with you.",
+            "You are my peaceful harbor when the world is chaotic.",
+            "Your endless patience and infinite kindness.",
+            "How you create joy in the smallest, everyday moments.",
+            "Your gorgeous eyes sparkle whenever you feel genuinely happy.",
+            "You are my truest soulmate, my best friend, and my partner.",
+            "The deep, beautiful wisdom hiding behind your sweet eyes.",
+            "Your wonderful passion for photography and catching moments.",
+            "You bring an absolute sense of balance to my life layout.",
+            "The gentle way you speak comfort into my worries.",
+            "Knowing you are my secure home, no matter where we go.",
+            "Your amazing sense of humor makes everything fun.",
+            "The pure magic you bring into every room you enter.",
+            "How safe and complete I feel when you are near.",
+            "Your beautiful loyalty and unwavering faith in us.",
+            "Simply because you are you—my gorgeous princess at 26."
         ];
+        let reasonIndex = 0;
 
-        let memoryIcons = ['❤️', '❤️', '💍', '💍', '🎁', '🎁', '👑', '👑', '🌹', '🌹', '🍿', '🍿', '🥤', '🥤', '🔮', '🔮'];
-        let selectedCards = [];
-        let canFlip = true;
+        /* --- NEW WEB AUDIO API SYNTHESIZER PATHWAY --- */
+        function initAudioFallback() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                playHappyBirthdayTune();
+            }
+        }
 
-        let catcherTimer = null;
-        let catcherX = 90;
-        const catcherWidth = 60;
-        let fallingHearts = [];
-        let catcherScore = 0;
-        let catcherMoveInterval = null;
-
-        window.addEventListener('DOMContentLoaded', () => {
-            globalShowerInterval = setInterval(spawnHeartParticle, 350);
-            initMemoryGame();
+        function playHappyBirthdayTune() {
+            if (!audioContext) return;
             
-            // Web Audio API context setup to bypass hardware silence toggles
-            window.addEventListener('click', () => {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                if (AudioContext) {
-                    const ctx = new AudioContext();
-                    if (ctx.state === 'suspended') ctx.resume();
-                }
-            }, { once: true });
-        });
+            // Notes for Happy Birthday Melodic Theme Loop
+            const notes = [
+                { f: 261.63, d: 0.4 }, { f: 261.63, d: 0.2 }, { f: 293.66, d: 0.6 }, { f: 261.63, d: 0.6 }, { f: 349.23, d: 0.6 }, { f: 329.63, d: 1.0 },
+                { f: 261.63, d: 0.4 }, { f: 261.63, d: 0.2 }, { f: 293.66, d: 0.6 }, { f: 261.63, d: 0.6 }, { f: 392.00, d: 0.6 }, { f: 349.23, d: 1.0 },
+                { f: 261.63, d: 0.4 }, { f: 261.63, d: 0.2 }, { f: 523.25, d: 0.6 }, { f: 440.00, d: 0.6 }, { f: 349.23, d: 0.6 }, { f: 329.63, d: 0.6 }, { f: 293.66, d: 0.6 },
+                { f: 466.16, d: 0.4 }, { f: 466.16, d: 0.2 }, { f: 440.00, d: 0.6 }, { f: 349.23, d: 0.6 }, { f: 392.00, d: 0.6 }, { f: 349.23, d: 1.2 }
+            ];
 
-        // RE-ENGINEERED FORCE PLAY AUDIO FUNCTION WITH LIVE STATUS INTERACTION
-        function startMusic() {
-            const music = document.getElementById('bg-music');
-            const indicator = document.getElementById('music-indicator');
-            music.volume = 0.75; 
-            
-            music.play().then(() => {
-                indicator.innerText = "🎵 Melodious Birthday Music Playing Live ✨";
-                indicator.style.borderColor = "#00ffcc";
-            }).catch(error => {
-                console.log("Primary track block, running forced stream sync.");
-                // Instant hot-swap alternative fallback streaming protocol
-                music.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
-                music.play().then(() => {
-                    indicator.innerText = "🎵 Melodious Music Stream Engaged ✨";
-                });
+            let timeOffset = audioContext.currentTime + 0.1;
+
+            notes.forEach(note => {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                
+                osc.type = 'triangle'; // High performance beautiful chime effect
+                osc.frequency.setValueAtTime(note.f, timeOffset);
+                
+                gain.gain.setValueAtTime(0.2, timeOffset);
+                gain.gain.exponentialRampToValueAtTime(0.001, timeOffset + note.d - 0.05);
+                
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                
+                osc.start(timeOffset);
+                osc.stop(timeOffset + note.d);
+                
+                timeOffset += note.d;
             });
+
+            // Loop track over infinite timeframe sequence
+            toneSequencerTimer = setTimeout(playHappyBirthdayTune, (timeOffset - audioContext.currentTime) * 1000 + 400);
         }
 
         function checkPassword() {
-            const pass = document.getElementById('vault-key').value.toLowerCase();
-            if (pass === 'love') {
-                startMusic();
-                document.getElementById('page-lock').style.display = 'none';
-                
-                const overlay = document.getElementById('transition-overlay');
-                const numNode = document.getElementById('evolution-number');
-                const txtNode = document.getElementById('evolution-txt');
-                const finalNode = document.getElementById('evolution-final');
-                
-                overlay.style.display = 'flex';
-                
-                let currentAge = 0;
-                let evolutionInterval = setInterval(() => {
-                    currentAge++;
-                    if(currentAge <= 25) {
-                        numNode.innerText = currentAge;
-                        if(currentAge === 5) txtNode.innerText = "Childhood Sweetheart... 🧸";
-                        if(currentAge === 13) txtNode.innerText = "Growing Beautifully... ✨";
-                        if(currentAge === 18) txtNode.innerText = "Stepping Into The World... 🌸";
-                        if(currentAge === 22) txtNode.innerText = "Building Great Dreams... 💭";
-                    } else {
-                        clearInterval(evolutionInterval);
-                        numNode.style.display = 'none';
-                        txtNode.style.display = 'none';
-                        finalNode.style.display = 'block';
-                        
-                        createExplosionEffect(window.innerWidth/2, window.innerHeight/2);
-                        
-                        setTimeout(() => {
-                            overlay.style.opacity = '0';
-                            setTimeout(() => {
-                                overlay.style.display = 'none';
-                            }, 1000);
-
-                            document.getElementById('ambient-love-line').style.display = 'block'; 
-                            document.getElementById('top-nav').style.display = 'flex';
-                            document.getElementById('love-footer').style.display = 'block';
-                            
-                            renderBlockPuzzle();
-                            initWordSudokuGrid();
-                            switchTab('page-gallery', document.querySelector('.top-nav-btn'));
-                        }, 2000);
-                    }
-                }, 100);
+            const val = document.getElementById('vault-key').value.trim().toLowerCase();
+            if(val === SECRETPHRASE) {
+                document.getElementById('lock-error').style.display = 'none';
+                initAudioFallback();
+                runCinematicEvolution();
             } else {
                 document.getElementById('lock-error').style.display = 'block';
+                triggerExplosionBurst(window.innerWidth/2, window.innerHeight/2, '#f40009');
             }
         }
 
-        function switchTab(pageId, btn) {
-            if(btn.classList.contains('logout-btn')) return;
-            document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.page-view').forEach(p => p.style.display = 'none');
-            btn.classList.add('active');
-            document.getElementById(pageId).style.display = 'block';
+        function runCinematicEvolution() {
+            const overlay = document.getElementById('transition-overlay');
+            const numNode = document.getElementById('evolution-number');
+            const txtNode = document.getElementById('evolution-txt');
+            const finalNode = document.getElementById('evolution-final');
             
-            if(pageId !== 'page-arcade') {
-                clearInterval(catcherTimer);
+            overlay.style.display = 'flex';
+            let currentAge = 0;
+            
+            const captions = {
+                5: "Baby Princess Steps... 🌸",
+                12: "School Days & Bright Smiles... ✨",
+                18: "Stepping Into The World... 👑",
+                22: "Beautiful Milestones Writing... ❤️",
+                25: "The Ultimate Chapter Prepares... 🔒"
+            };
+
+            const interval = setInterval(() => {
+                currentAge++;
+                numNode.innerText = currentAge;
+                
+                if(captions[currentAge]) {
+                    txtNode.innerText = captions[currentAge];
+                }
+
+                if(currentAge === 26) {
+                    clearInterval(interval);
+                    numNode.style.display = 'none';
+                    txtNode.style.display = 'none';
+                    finalNode.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            overlay.style.display = 'none';
+                            unlockApplicationLayout();
+                        }, 1000);
+                    }, 1800);
+                }
+            }, 75);
+        }
+
+        function unlockApplicationLayout() {
+            document.getElementById('page-lock').classList.remove('active-view');
+            document.getElementById('page-gallery').classList.add('active-view');
+            document.getElementById('top-nav').style.display = 'flex';
+            document.getElementById('ambient-love-line').style.display = 'block';
+            document.getElementById('global-footer').style.display = 'block';
+            spawnAlertBanner("🔓 MATRIX SECURED • WELCOME SUSHMITA");
+            initMemoryGame();
+        }
+
+        function switchTab(targetId, btn) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-view'));
+            document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('activeactive','active'));
+            
+            document.getElementById(targetId).classList.add('active-view');
+            btn.classList.add('active');
+
+            if(targetId === 'page-arcade') {
+                setTimeout(() => {
+                    initMemoryGame();
+                    initPuzzleGame();
+                    initSudokuGame();
+                    initCatcherGame();
+                }, 50);
             }
-            window.scrollTo(0,0);
+        }
+
+        function handleSystemLogout() {
+            document.getElementById('top-nav').style.display = 'none';
+            document.getElementById('ambient-love-line').style.display = 'none';
+            document.getElementById('global-footer').style.display = 'none';
+            document.getElementById('vault-key').value = "";
+            if (toneSequencerTimer) clearTimeout(toneSequencerTimer);
+            audioContext = null;
+            
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-view'));
+            document.getElementById('page-lock').classList.add('active-view');
+            spawnAlertBanner("🔒 ACCESS LOCKED PORTAL");
+        }
+
+        function pressLounge(item) {
+            const display = document.getElementById('lounge-text');
+            const data = {
+                coke: "🥤 An ice-cold bottle of Coke ready just for you! Sweet, refreshing, and crisp—perfect for our gorgeous 26-year-old queen! ✨",
+                tiktok: "📱 TikTok drafts vault open! Time to save those gorgeous smiles, dance moves, and trends. Keep shining daily! 👑",
+                samosa: "🥟 Warm samosas paired alongside a perfectly steaming cup of spiced milk tea. Relax and enjoy your special day! 🌸",
+                photography: "📸 Capture every single aesthetic angle! You are, and always will be, the absolute most stunning scenery in my entire world. ❤️"
+            };
+            display.innerText = data[item] || "";
+            display.style.color = "#ffd700";
+            triggerExplosionBurst(window.innerWidth/2, window.innerHeight/2, '#ffd700');
+        }
+
+        function revealReason() {
+            const display = document.getElementById('lounge-text');
+            display.innerText = `Reason ${reasonIndex + 1}: ${dynamicReasons[reasonIndex]} ❤️`;
+            display.style.color = "#00ffcc";
+            reasonIndex = (reasonIndex + 1) % dynamicReasons.length;
         }
 
         function openLetterDirectly() {
             switchTab('page-vault', document.querySelectorAll('.top-nav-btn')[2]);
         }
 
-        function revealReason() {
-            document.getElementById('lounge-text').innerText = reasonsList[currentReasonIdx];
-            createExplosionEffect(window.innerWidth / 2, window.innerHeight / 2);
-            currentReasonIdx = (currentReasonIdx + 1) % reasonsList.length;
-        }
-
-        function switchArcadeGame(gameKey, btn) {
-            document.querySelectorAll('.arcade-tab-btn').forEach(b => b.classList.remove('active-sub'));
-            btn.classList.add('active-sub');
-            
-            document.getElementById('sub-game-match').style.display = 'none';
-            document.getElementById('sub-game-rush').style.display = 'none';
-            document.getElementById('sub-game-puzzle').style.display = 'none';
-            document.getElementById('sub-game-sudoku').style.display = 'none';
-            document.getElementById('sub-game-catcher').style.display = 'none';
-            
-            clearInterval(catcherTimer);
-
-            if(gameKey === 'mat') {
-                document.getElementById('sub-game-match').style.display = 'flex';
-                initMemoryGame();
-            } else if(gameKey === 'rsh') {
-                document.getElementById('sub-game-rush').style.display = 'flex';
-                resetReactorCoreGame();
-            } else if(gameKey === 'puz') {
-                document.getElementById('sub-game-puzzle').style.display = 'flex';
-                initBlockPuzzle();
-            } else if(gameKey === 'sud') {
-                document.getElementById('sub-game-sudoku').style.display = 'flex';
-                initWordSudokuGrid();
-            } else if(gameKey === 'cth') {
-                document.getElementById('sub-game-catcher').style.display = 'flex';
-                initCatcherGame();
-            }
-        }
-
-        /* --- GAME 1: MATCHING MATRIX --- */
-        function initMemoryGame() {
-            document.getElementById('match-msg').innerText = "";
-            selectedCards = [];
-            canFlip = true;
-            memoryIcons.sort(() => Math.random() - 0.5);
-            
-            const grid = document.getElementById('arcade-memory-grid');
-            grid.innerHTML = "";
-            
-            for(let i=0; i<16; i++) {
-                const card = document.createElement('div');
-                card.classList.add('memory-card');
-                card.dataset.index = i;
-                card.dataset.icon = memoryIcons[i];
-                card.innerText = "?";
-                card.onclick = () => flipMemoryCard(card);
-                grid.appendChild(card);
-            }
-        }
-
-        function flipMemoryCard(card) {
-            if(!canFlip || card.classList.contains('flipped') || card.classList.contains('matched')) return;
-            card.classList.add('flipped');
-            card.innerText = card.dataset.icon;
-            selectedCards.push(card);
-            
-            if(selectedCards.length === 2) {
-                canFlip = false;
-                checkMemoryMatch();
-            }
-        }
-
-        function checkMemoryMatch() {
-            const [c1, c2] = selectedCards;
-            if(c1.dataset.icon === c2.dataset.icon) {
-                c1.classList.add('matched');
-                c2.classList.add('matched');
-                selectedCards = [];
-                canFlip = true;
-                
-                if(document.querySelectorAll('.memory-card.matched').length === 16) {
-                    document.getElementById('match-msg').innerHTML = "💖 Perfect Match! Chapter 26 Aligned! 🎉";
-                    triggerArcadeVictoryEffects();
-                }
-            } else {
-                setTimeout(() => {
-                    c1.classList.remove('flipped'); c1.innerText = "?";
-                    c2.classList.remove('flipped'); c2.innerText = "?";
-                    selectedCards = []; canFlip = true;
-                }, 800);
-            }
-        }
-
-        /* --- GAME 2: ADRENALINE CLICKER CORES --- */
-        function resetReactorCoreGame() {
-            clickerScore = 0;
-            document.getElementById('rush-msg').innerText = "Score: 0 / 26";
-            document.getElementById('reactor-progress-bar').style.width = "0%";
-            document.getElementById('reactor-score-node').innerText = "TAP!";
-        }
-
-        function handleReactorCoreClick() {
-            if(clickerScore >= 26) return;
-            clickerScore++;
-            document.getElementById('rush-msg').innerText = `Score: ${clickerScore} / 26`;
-            
-            let pct = (clickerScore / 26) * 100;
-            document.getElementById('reactor-progress-bar').style.width = `${pct}%`;
-            document.getElementById('reactor-score-node').innerText = `+${clickerScore}`;
-
-            if(clickerScore === 26) {
-                document.getElementById('rush-msg').innerHTML = "⚡ Level 26 Burst Complete! You Are Amazing! ❤️";
-                triggerArcadeVictoryEffects();
-            }
-        }
-
-        /* --- GAME 3: PRO 1-TAP SLIDING BLOCK --- */
-        function initBlockPuzzle() {
-            puzState = [1, 2, 3, 4, 5, 6, 7, "", 8]; 
-            document.getElementById('puzzle-msg').innerText = "";
-            renderBlockPuzzle();
-        }
-
-        function renderBlockPuzzle() {
-            const board = document.getElementById('arcade-puzzle-board');
-            board.innerHTML = "";
-            puzState.forEach((val, idx) => {
-                const tile = document.createElement('div');
-                tile.classList.add('puzzle-tile');
-                if(val === "") {
-                    tile.classList.add('empty');
-                } else {
-                    tile.innerText = val;
-                    tile.onclick = () => shiftTile(idx);
-                }
-                board.appendChild(tile);
-            });
-        }
-
-        function shiftTile(idx) {
-            const emptyIdx = puzState.indexOf("");
-            const validMoves = [idx - 1, idx + 1, idx - 3, idx + 3];
-            if(validMoves.includes(emptyIdx)) {
-                if((idx % 3 === 0 && emptyIdx === idx - 1) || (idx % 3 === 2 && emptyIdx === idx + 1)) return;
-                puzState[emptyIdx] = puzState[idx]; puzState[idx] = "";
-                renderBlockPuzzle();
-                
-                if(puzState.slice(0,8).every((v,i) => v === i+1)) {
-                    document.getElementById('puzzle-msg').innerHTML = "❤️ Matrix Aligned! Happy 26th Birthday! 🎉";
-                    triggerArcadeVictoryEffects();
-                }
-            }
-        }
-
-        /* --- GAME 4: WORD SUDOKU --- */
-        const sudokuSolution = ['H','E','A','R','A','R','H','E','E','H','R','A','R','A','E','H'];
-        const sudokuPuzzleTemplate = ['H','E','A','R','A','R','H','','E','H','R','A','R','','E','H'];
-
-        function initWordSudokuGrid() {
-            document.getElementById('sudoku-msg').innerText = "";
-            const board = document.getElementById('arcade-sudoku-board');
-            board.innerHTML = "";
-            
-            sudokuPuzzleTemplate.forEach((val, idx) => {
-                const cell = document.createElement('input');
-                cell.classList.add('sudoku-cell');
-                cell.type = "text"; cell.maxLength = 1;
-                if(val !== '') {
-                    cell.value = val; cell.disabled = true;
-                } else {
-                    cell.value = ""; cell.placeholder = "?";
-                }
-                cell.id = `sud-cell-${idx}`;
-                board.appendChild(cell);
-            });
-        }
-
-        function checkSudokuSolution() {
-            let correctCount = 0;
-            for(let i=0; i<16; i++) {
-                const cellVal = document.getElementById(`sud-cell-${i}`).value.toUpperCase().trim();
-                if(cellVal === sudokuSolution[i]) correctCount++;
-            }
-            if(correctCount === 16) {
-                document.getElementById('sudoku-msg').innerHTML = "💖 Sudoku Intact! Level 26 Complete! 🎉";
-                triggerArcadeVictoryEffects();
-            } else {
-                document.getElementById('sudoku-msg').innerText = "❌ Hint: Missing entries are letters 'E' and 'A'!";
-            }
-        }
-
-        /* --- GAME 5: LOVE CATCHER HIGH SPEED SCALED RUN --- */
-        function initCatcherGame() {
-            document.getElementById('catcher-msg').innerText = "Score: 0 / 26";
-            clearInterval(catcherTimer);
-            catcherScore = 0; catcherX = 90; fallingHearts = [];
-            
-            const canvas = document.getElementById('catcher-canvas');
-            canvas.onclick = (e) => {
-                const rect = canvas.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                if(clickX < rect.width / 2) {
-                    catcherX = Math.max(0, catcherX - 25);
-                } else {
-                    catcherX = Math.min(240 - catcherWidth, catcherX + 25);
-                }
-            };
-            catcherTimer = setInterval(updateCatcherLoop, 40);
-        }
-
-        function startCatcherMove(dir) {
-            clearInterval(catcherMoveInterval);
-            catcherMoveInterval = setInterval(() => {
-                catcherX += dir;
-                if(catcherX < 0) catcherX = 0;
-                if(catcherX > 240 - catcherWidth) catcherX = 240 - catcherWidth;
-            }, 40);
-        }
-
-        function stopCatcherMove() { clearInterval(catcherMoveInterval); }
-
-        function updateCatcherLoop() {
-            const canvas = document.getElementById('catcher-canvas');
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, 240, 240);
-
-            let calculatedSpeedModifier = 3 + (catcherScore * 0.15);
-
-            if(Math.random() < 0.05 && fallingHearts.length < 5) {
-                fallingHearts.push({
-                    x: Math.random() * 210 + 10,
-                    y: 0,
-                    speed: Math.random() * 2 + calculatedSpeedModifier,
-                    emoji: ['❤️','💖','✨','🎂'][Math.floor(Math.random() * 4)]
-                });
-            }
-
-            ctx.fillStyle = '#00ffcc';
-            ctx.shadowBlur = 10; ctx.shadowColor = '#00ffcc';
-            ctx.fillRect(catcherX, 220, catcherWidth, 12);
-            ctx.shadowBlur = 0;
-
-            for(let i = fallingHearts.length - 1; i >= 0; i--) {
-                let h = fallingHearts[i];
-                h.y += h.speed;
-                ctx.font = "18px serif";
-                ctx.fillText(h.emoji, h.x, h.y);
-
-                if(h.y >= 210 && h.y <= 230 && h.x >= catcherX - 10 && h.x <= catcherX + catcherWidth + 5) {
-                    fallingHearts.splice(i, 1);
-                    catcherScore++;
-                    document.getElementById('catcher-msg').innerText = `Score: ${catcherScore} / 26`;
-                    
-                    if(catcherScore >= 26) {
-                        document.getElementById('catcher-msg').innerHTML = "👑 Era 26 Clear! Full Stack! ❤️";
-                        triggerArcadeVictoryEffects();
-                        clearInterval(catcherTimer);
-                    }
-                    continue;
-                }
-                if(h.y > 240) fallingHearts.splice(i, 1);
-            }
-        }
-
-        function triggerArcadeVictoryEffects() {
-            const midX = window.innerWidth / 2;
-            createExplosionEffect(midX, window.innerHeight / 2);
-            spawnFloatingBanner(midX, window.innerHeight / 2, "CHAPTER 26 IS UNLOCKED! 💖");
-            for(let i=0; i<26; i++) {
-                setTimeout(() => spawnHeartParticle('💖'), i * 60);
-            }
-        }
-
-        /* --- LOUNGE LOGGER ENGINE --- */
-        const textLogs = {
-            coke: "🥤 Refreshing! Fresh bubbles rush up directly from the cold bottle. You give me that same sweet energy every single day, my love!",
-            tiktok: "📱 You are effortlessly stunning! When you make your video drafts, your pretty face and angelic features show how naturally beautiful you are, Maya!",
-            samosa: "🥟 Sweet memories! Eating spicy samosas and drinking hot tea together was perfect because I got to stare directly into your gorgeous eyes and look at your stunning smile.",
-            photography: "📸 Perfect click! You capture beautiful things effortlessly, but to me, you are always the prettiest sight in existence."
-        };
-
-        function pressLounge(itemKey) {
-            document.getElementById('lounge-text').innerText = textLogs[itemKey];
-            let itemEmoji = '❤️';
-            if (itemKey === 'coke') itemEmoji = '🫧';
-            if (itemKey === 'tiktok') itemEmoji = '📱';
-            if (itemKey === 'samosa') itemEmoji = '☕';
-            for (let i = 0; i < 26; i++) spawnHeartParticle(itemEmoji);
-        }
-
+        /* --- VISUAL RENDERS & PARTICLE ENGINES --- */
         function triggerPortalSurprise() {
-            startMusic(); 
-            const centerX = window.innerWidth / 2;
-            const baseY = window.innerHeight / 2;
-
-            const bannerSequence = [
-                { text: "Happy Birthday Sushmita 🎉", offset: -80 },
-                { text: "Welcome to Chapter 26 💖", offset: -20 },
-                { text: "Happy Birthday Sushmita ✨", offset: 40 },
-                { text: "16 June 2026 🎂", offset: 100 }
-            ];
-
-            bannerSequence.forEach((item, index) => {
+            initAudioFallback();
+            spawnAlertBanner("🎉 ASMIN LOVES SUSHMITA FOREVER! 🎉");
+            for(let i=0; i<4; i++) {
                 setTimeout(() => {
-                    createExplosionEffect(centerX + (index * 15 - 20), baseY + item.offset);
-                    spawnFloatingBanner(centerX, baseY + item.offset, item.text);
-                }, index * 400); 
-            });
-        }
-
-        function handleSystemLogout() {
-            clearInterval(catcherTimer);
-            const music = document.getElementById('bg-music');
-            music.pause(); music.currentTime = 0;
-            document.getElementById('music-indicator').innerText = "🎵 Tap to Turn On Birthday Music 🎵";
-            
-            document.getElementById('vault-key').value = '';
-            document.getElementById('lock-error').style.display = 'none';
-            document.getElementById('ambient-love-line').style.display = 'none';
-            document.getElementById('top-nav').style.display = 'none';
-            document.getElementById('love-footer').style.display = 'none';
-            
-            document.querySelectorAll('.page-view').forEach(p => p.style.display = 'none');
-            document.getElementById('page-lock').style.display = 'flex';
-            
-            document.getElementById('evolution-number').style.display = 'block';
-            document.getElementById('evolution-txt').style.display = 'block';
-            document.getElementById('evolution-final').style.display = 'none';
-            document.getElementById('transition-overlay').style.opacity = '1';
-            
-            window.scrollTo(0,0);
-        }
-
-        function handleLoveFooterClick() {
-            loveShowerBurst();
-        }
-
-        function spawnHeartParticle(customSymbol) {
-            const p = document.createElement('div');
-            p.classList.add('shower-item');
-            const generalSymbols = ['❤️', '💖', '👑', '✨', '🌹', '🎂'];
-            p.innerText = customSymbol ? customSymbol : generalSymbols[Math.floor(Math.random() * generalSymbols.length)];
-            p.style.left = Math.random() * 95 + 'vw';
-            p.style.fontSize = (Math.random() * 14 + 16) + 'px';
-            document.body.appendChild(p);
-            setTimeout(() => { p.remove(); }, 3000);
-        }
-
-        function loveShowerBurst() {
-            const middleX = window.innerWidth / 2;
-            createExplosionEffect(middleX, window.innerHeight - 80);
-            for (let i = 0; i < 26; i++) {
-                setTimeout(spawnHeartParticle, i * 30);
+                    triggerExplosionBurst(Math.random()*window.innerWidth, Math.random()*window.innerHeight, '#00ffcc');
+                }, i*300);
             }
         }
 
-        function createExplosionEffect(x, y) {
-            const dynamicColors = ['#f40009', '#ff4d5a', '#ffd700', '#00ffcc', '#ffffff'];
-            for (let i = 0; i < 30; i++) {
-                const spark = document.createElement('div');
-                spark.classList.add('sparkle');
-                spark.style.left = x + 'px'; spark.style.top = y + 'px';
-                spark.style.backgroundColor = dynamicColors[Math.floor(Math.random() * dynamicColors.length)];
+        // Modified safety bounds handler for the alerts
+        function spawnAlertBanner(msg) {
+            const b = document.createElement('div');
+            b.className = 'birthday-banner';
+            b.innerText = msg;
+            b.style.top = (window.innerHeight / 2) + 'px';
+            document.body.appendChild(b);
+            setTimeout(() => b.remove(), 2500);
+        }
+
+        function triggerExplosionBurst(x, y, color) {
+            for (let i = 0; i < 16; i++) {
+                const s = document.createElement('div');
+                s.className = 'sparkle';
+                s.style.left = x + 'px';
+                s.style.top = y + 'px';
+                s.style.background = color || '#ff0055';
+                s.style.boxShadow = `0 0 8px ${color || '#ff0055'}`;
                 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = 10 + Math.random() * 120;
-                spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
-                spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+                const speed = 30 + Math.random() * 70;
+                s.style.setProperty('--x', Math.cos(angle) * speed + 'px');
+                s.style.setProperty('--y', Math.sin(angle) * speed + 'px');
                 
-                document.body.appendChild(spark);
-                setTimeout(() => { spark.remove(); }, 1000);
+                document.body.appendChild(s);
+                setTimeout(() => s.remove(), 1000);
             }
         }
 
-        function spawnFloatingBanner(x, y, textString) {
-            const textNode = document.createElement('div');
-            textNode.classList.add('birthday-banner');
-            textNode.innerText = textString;
-            textNode.style.top = (y - 30) + 'px';
-            document.body.appendChild(textNode);
-            setTimeout(() => { textNode.remove(); }, 2500);
+        function launchShowerEngine() {
+            const items = ['💖','❤️','👑','✨','🌸','🍿'];
+            for(let i=0; i<30; i++) {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.className = 'shower-item';
+                    el.innerText = items[Math.floor(Math.random()*items.length)];
+                    el.style.left = Math.random() * 95 + 'vw';
+                    el.style.fontSize = (1.2 + Math.random()*1.5) + 'rem';
+                    el.style.animationDuration = (2 + Math.random()*2) + 's';
+                    document.body.appendChild(el);
+                    setTimeout(() => el.remove(), 4000);
+                }, i * 100);
+            }
+        }
+
+        /* --- INTERACTIVE SUITE: SUB-GAME ROUTER --- */
+        function switchArcadeGame(gameKey, btn) {
+            document.querySelectorAll('.game-subview').forEach(v => v.style.display = 'none');
+            document.querySelectorAll('.arcade-tab-btn').forEach(b => b.classList.remove('active-sub'));
+            btn.classList.add('active-sub');
+
+            if(gameKey === 'mat') document.getElementById('sub-game-match').style.display = 'flex';
+            if(gameKey === 'rsh') document.getElementById('sub-game-rush').style.display = 'flex';
+            if(gameKey === 'puz') document.getElementById('sub-game-puz').style.display = 'flex';
+            if(gameKey === 'sud') document.getElementById('sub-game-sud').style.display = 'flex';
+            if(gameKey === 'cth') document.getElementById('sub-game-cth').style.display = 'flex';
+        }
+
+        /* --- GAME 1: SOULMATE MATCH --- */
+        let memoryDeck = ['👑','👑','🥤','🥤','🍿','🍿','💌','💌','💖','💖','🥟','🥟','📸','📸','📱','📱'];
+        let choiceCards = [];
+        let scoreMatches = 0;
+
+        function initMemoryGame() {
+            const grid = document.getElementById('arcade-memory-grid');
+            if(!grid) return;
+            grid.innerHTML = "";
+            choiceCards = [];
+            scoreMatches = 0;
+            document.getElementById('match-msg').innerText = "";
+            
+            let arr = [...memoryDeck];
+            for(let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+
+            arr.forEach((symbol, idx) => {
+                const node = document.createElement('div');
+                node.className = 'memory-card';
+                node.dataset.symbol = symbol;
+                node.dataset.id = idx;
+                node.innerText = symbol;
+                node.onclick = () => handleMemoryTurn(node);
+                grid.appendChild(node);
+            });
+        }
+
+        function handleMemoryTurn(node) {
+            if(node.classList.contains('flipped') || node.classList.contains('matched') || choiceCards.length >= 2) return;
+            
+            node.classList.add('flipped');
+            choiceCards.push(node);
+
+            if(choiceCards.length === 2) {
+                const c1 = choiceCards[0];
+                const c2 = choiceCards[1];
+                
+                if(c1.dataset.symbol === c2.dataset.symbol) {
+                    c1.classList.add('matched');
+                    c2.classList.add('matched');
+                    scoreMatches++;
+                    choiceCards = [];
+                    if(scoreMatches === 8) {
+                        document.getElementById('match-msg').innerText = "🏆 PERFECT LEVEL 26 COMPLETION!";
+                        launchShowerEngine();
+                    }
+                } else {
+                    setTimeout(() => {
+                        c1.classList.remove('flipped');
+                        c2.classList.remove('flipped');
+                        choiceCards = [];
+                    }, 800);
+                }
+            }
+        }
+
+        /* --- GAME 2: CORE REACTOR --- */
+        let reactorHits = 0;
+        function handleReactorCoreClick() {
+            if(reactorHits >= 26) return;
+            reactorHits++;
+            
+            document.getElementById('reactor-score-node').innerText = reactorHits;
+            const percentage = (reactorHits / 26) * 100;
+            document.getElementById('reactor-bar').style.width = percentage + '%';
+
+            if(reactorHits === 26) {
+                document.getElementById('rush-msg').innerText = "⚡ INFINITE POWER STREAM ACTIVE! 💖";
+                document.getElementById('reactor-score-node').innerText = "👑";
+                launchShowerEngine();
+            }
+        }
+        function resetReactorGame() {
+            reactorHits = 0;
+            document.getElementById('reactor-score-node').innerText = "TAP!";
+            document.getElementById('reactor-bar').style.width = '0%';
+            document.getElementById('rush-msg').innerText = "";
+        }
+
+        /* --- GAME 3: MATRIX SLIDE --- */
+        let puzzleState = [1, 2, 3, 4, 5, 6, 7, 8, ""];
+        function initPuzzleGame() {
+            const board = document.getElementById('puzzle-grid-board');
+            if(!board) return;
+            document.getElementById('puzzle-msg').innerText = "";
+            
+            for(let i=0; i<60; i++) {
+                let emptyIdx = puzzleState.indexOf("");
+                let validMoves = [];
+                if(emptyIdx % 3 > 0) validMoves.push(emptyIdx - 1); 
+                if(emptyIdx % 3 < 2) validMoves.push(emptyIdx + 1); 
+                if(emptyIdx - 3 >= 0) validMoves.push(emptyIdx - 3); 
+                if(emptyIdx + 3 < 9) validMoves.push(emptyIdx + 3); 
+                let randomMove = validMoves[Math.floor(Math.random() * validMoves.length)];
+                [puzzleState[emptyIdx], puzzleState[randomMove]] = [puzzleState[randomMove], puzzleState[emptyIdx]];
+            }
+            renderPuzzleView();
+        }
+
+        function renderPuzzleView() {
+            const board = document.getElementById('puzzle-grid-board');
+            board.innerHTML = "";
+            puzzleState.forEach((val, idx) => {
+                const node = document.createElement('div');
+                node.className = `puzzle-tile ${val === "" ? 'empty' : ''}`;
+                node.innerText = val;
+                node.onclick = () => triggerPuzzleSlide(idx);
+                board.appendChild(node);
+            });
+        }
+
+        function triggerPuzzleSlide(idx) {
+            let emptyIdx = puzzleState.indexOf("");
+            const allowed = [emptyIdx-1, emptyIdx+1, emptyIdx-3, emptyIdx+3];
+            
+            if(allowed.includes(idx)) {
+                if((idx === emptyIdx-1 && idx%3 === 2) || (idx === emptyIdx+1 && idx%3 === 0)) return;
+                
+                [puzzleState[emptyIdx], puzzleState[idx]] = [puzzleState[idx], puzzleState[emptyIdx]];
+                renderPuzzleView();
+                
+                if(puzzleState.slice(0,8).join('') === '12345678') {
+                    document.getElementById('puzzle-msg').innerText = "🧩 LEVEL 26 MATRIX RESOLVED!";
+                    launchShowerEngine();
+                }
+            }
+        }
+
+        /* --- GAME 4: LOVE MATRIX --- */
+        const sudokuSolution = ['H','E','A','R','A','R','H','E','E','A','R','H','R','H','E','A'];
+        function initSudokuGame() {
+            const board = document.getElementById('sudoku-grid-board');
+            if(!board) return;
+            board.innerHTML = "";
+            document.getElementById('sudoku-msg').innerText = "";
+
+            const initialSetup = [
+                'H', '', 'A', '',
+                '', 'R', '', 'E',
+                'E', '', 'R', '',
+                '', 'H', '', 'A'
+            ];
+
+            initialSetup.forEach((val, idx) => {
+                const input = document.createElement('input');
+                input.className = 'sudoku-cell';
+                input.maxLength = 1;
+                input.value = val;
+                input.dataset.id = idx;
+                if(val !== '') input.disabled = true;
+                board.appendChild(input);
+            });
+        }
+
+        function checkSudokuWin() {
+            const cells = document.querySelectorAll('.sudoku-cell');
+            let perfect = true;
+            cells.forEach(c => {
+                let id = c.dataset.id;
+                if(c.value.toUpperCase() !== sudokuSolution[id]) {
+                    perfect = false;
+                }
+            });
+
+            if(perfect) {
+                document.getElementById('sudoku-msg').innerText = "🔠 GRID VALIDATED SUCCESSFULLY! 💖";
+                launchShowerEngine();
+            } else {
+                document.getElementById('sudoku-msg').innerText = "❌ Conflicts Found in Grid Setup.";
+            }
+        }
+
+        /* --- GAME 5: HEART CATCHER --- */
+        let catcherCanvas, ctx;
+        let catcherPaddleX = 95;
+        let fallingObject = {x: 120, y: 0, speed: 3.5};
+        let gameScore = 0;
+        let engineLoopId = null;
+
+        function initCatcherGame() {
+            catcherCanvas = document.getElementById('catcher-canvas');
+            if(!catcherCanvas) return;
+            ctx = catcherCanvas.getContext('2d');
+            catcherPaddleX = 95;
+            fallingObject.y = 0;
+            fallingObject.x = Math.random() * 200 + 10;
+            gameScore = 0;
+            document.getElementById('catch-msg').innerText = "Score: 0 / 10";
+            
+            if(engineLoopId) cancelAnimationFrame(engineLoopId);
+            runCatcherEngine();
+        }
+
+        function moveCatcherPaddle(offset) {
+            catcherPaddleX = Math.max(0, Math.min(190, catcherPaddleX + offset));
+        }
+
+        function runCatcherEngine() {
+            if(!ctx) return;
+            ctx.clearRect(0, 0, 240, 240);
+
+            // Render Player Basket
+            ctx.fillStyle = '#00ffcc';
+            ctx.fillRect(catcherPaddleX, 220, 50, 12);
+
+            // Process & Move Target Object
+            fallingObject.y += fallingObject.speed;
+            ctx.fillStyle = '#ff0055';
+            ctx.font = '16px sans-serif';
+            ctx.fillText('💖', fallingObject.x, fallingObject.y);
+
+            if(fallingObject.y >= 215 && fallingObject.x >= catcherPaddleX - 10 && fallingObject.x <= catcherPaddleX + 50) {
+                gameScore++;
+                document.getElementById('catch-msg').innerText = `Score: ${gameScore} / 10`;
+                fallingObject.y = 0;
+                fallingObject.x = Math.random() * 200 + 10;
+                if(gameScore >= 10) {
+                    document.getElementById('catch-msg').innerText = "🏆 SUSHMITA CONQUERS ARCADE LEVEL 26!";
+                    launchShowerEngine();
+                    return;
+                }
+            } else if(fallingObject.y > 240) {
+                fallingObject.y = 0;
+                fallingObject.x = Math.random() * 200 + 10;
+            }
+
+            engineLoopId = requestAnimationFrame(runCatcherEngine);
         }
     </script>
 </body>
