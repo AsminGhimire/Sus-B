@@ -53,6 +53,38 @@
             z-index: 10001;
         }
 
+
+
+        <audio id="birthday-bgm" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+<script>
+    // This updates your existing fallback function to trigger the music player
+    function initAudioFallback() {
+        const bgm = document.getElementById('birthday-bgm');
+        if (bgm) {
+            bgm.volume = 0.5; // Sets volume to 50% so it acts as background music
+            bgm.play().catch(error => {
+                console.log("Audio play blocked by browser settings.", error);
+            });
+        }
+    }
+
+    // This overrides your existing checkPassword function to fire the audio on success
+    function checkPassword() {
+        const val = document.getElementById('vault-key').value.trim().toLowerCase();
+        if(val === SECRETPHRASE) {
+            document.getElementById('lock-error').style.display = 'none';
+            initAudioFallback(); // <--- Plays the background music instantly
+            runCinematicEvolution();
+        } else {
+            document.getElementById('lock-error').style.display = 'block';
+            triggerExplosionBurst(window.innerWidth/2, window.innerHeight/2, '#f40009');
+        }
+    }
+</script>
+        
         /* Clean Mobile Navigation Bar - Fixed Tracking Overlaps */
         .top-navbar {
             display: none;
