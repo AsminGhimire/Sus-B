@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Secret: For Sushmita's Eyes Only ❤️</title>
+    <!-- Elegant and Girly Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* --- DESIGN FRAMEWORK & KEYFRAMES --- */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent; /* Removes ugly flash on mobile tap */
         }
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Poppins', 'Georgia', serif;
             background-color: #080104;
             color: #fff;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
         }
         
         /* Smooth Global Fade Animation */
@@ -152,6 +156,7 @@
             z-index: 9999;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
+            flex-wrap: wrap; /* Fixed for smaller mobile widths */
         }
         .nav-link {
             color: #aaa;
@@ -180,7 +185,7 @@
             margin: 30px 0 50px 0;
         }
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #fff;
             letter-spacing: 1px;
             margin-bottom: 12px;
@@ -193,10 +198,11 @@
         }
         .animated-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             max-width: 1140px;
             margin: 0 auto 60px auto;
+            width: 100%;
         }
         
         /* Viewfinder Camera Aesthetic Card */
@@ -422,10 +428,75 @@
             border: 0;
         }
 
+        /* --- INTERACTIVE LOVE SURPRISE SYSTEM --- */
+        .sticky-love-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 420px;
+            z-index: 10005;
+            display: none; /* Turned on post login authentication */
+        }
+        .asmin-love-btn {
+            background: linear-gradient(45deg, #f40009, #ff4d5a);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(244, 0, 9, 0.5);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: interactivePulse 2s infinite;
+        }
+        .asmin-love-btn:active {
+            transform: scale(0.96);
+            box-shadow: 0 4px 12px rgba(244, 0, 9, 0.4);
+        }
+        @keyframes interactivePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); box-shadow: 0 12px 30px rgba(244, 0, 9, 0.7); }
+            100% { transform: scale(1); }
+        }
+
+        /* Dynamic Engine Particles */
+        .sparkle-burst {
+            position: fixed;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 100000;
+            animation: firecrackerBlast 1s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+        }
+        .interactive-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 100000;
+            animation: heartScreenFloat 2.5s ease-out forwards;
+        }
+
+        @keyframes firecrackerBlast {
+            0% { transform: translate(0, 0) scale(1.5); opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+        }
+        @keyframes heartScreenFloat {
+            0% { transform: translateY(10vh) translateX(0) scale(0); opacity: 0; }
+            15% { opacity: 1; transform: translateY(0) translateX(0) scale(1.3); }
+            100% { transform: translateY(-95vh) translateX(var(--driftX)) scale(0.6) rotate(var(--rot)); opacity: 0; }
+        }
+
         /* --- SPARKLING UPWARD RISING SYSTEM --- */
         .shower-item {
             position: fixed;
-            bottom: -60px; /* Aligned below printable frame edge */
+            bottom: -60px;
             pointer-events: none;
             z-index: 99999;
             white-space: nowrap;
@@ -440,7 +511,6 @@
             letter-spacing: 2px;
         }
         
-        /* Smooth, slow upward drift animation matrices */
         @keyframes elegantSlowRise {
             0% { transform: translateY(0) scale(0.6) rotate(-8deg); opacity: 0; }
             15% { opacity: 0.9; }
@@ -456,12 +526,13 @@
 
         footer {
             margin-top: 80px;
-            padding: 40px 0;
+            padding: 40px 0 110px 0; /* Expanded padding to clear sticky action button area layout */
             color: #6b5458;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-size: 0.8rem;
             border-top: 1px solid rgba(255,255,255,0.03);
+            text-align: center;
         }
     </style>
 </head>
@@ -489,6 +560,7 @@
         <span class="nav-link" onclick="navigateToPage('page-vault', this)">💌 The Archive Scroll</span>
     </nav>
 
+    <!-- STAGE 2: GALLERY WITH YOUR CUSTOM UPLOADED IMAGES -->
     <div id="page-gallery" class="page-view">
         <div class="section-header">
             <h2>The Photographic File of Beautiful Chaos ❤️</h2>
@@ -496,31 +568,69 @@
         </div>
 
         <section class="animated-grid">
+            <!-- Image 1: 1.jpg.jpg -->
             <div class="interactive-card">
                 <div class="image-wrapper">
-                    <img src="1.jpg.jpg" alt="Sushmita Snapshot">
+                    <img src="1.jpg.jpg" alt="Sushmita Snapshot 1">
                 </div>
                 <div class="card-details">
                     <h4>ISO 100 // Shutter Speed Premium ❤️</h4>
                     <p>Caught looking absolutely breathtaking on a normal afternoon layout. My favorite model in existence.</p>
                 </div>
             </div>
+
+            <!-- Image 2: 3.jpg.jpg -->
             <div class="interactive-card">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Memories">
+                    <img src="3.jpg.jpg" alt="Sushmita Snapshot 2">
                 </div>
                 <div class="card-details">
                     <h4>Viral TikTok Draft Layouts ❤️</h4>
                     <p>Scheming our upcoming aesthetic weekend content changes over long, midnight phone calls.</p>
                 </div>
             </div>
+
+            <!-- Image 3: 5.jpg.jpg -->
             <div class="interactive-card">
                 <div class="image-wrapper">
-                    <video src="https://assets.mixkit.co/videos/preview/mixkit-holding-hands-of-a-couple-close-up-34289-large.mp4" controls muted loop></video>
+                    <img src="5.jpg.jpg" alt="Sushmita Snapshot 3">
                 </div>
                 <div class="card-details">
-                    <h4>Cinematic Masterpiece Framing ❤️</h4>
+                    <h4>Pure Cinematic Brilliance ❤️</h4>
+                    <p>The prettiest girl in the world. One single look from you alters my complete reality layout timeline.</p>
+                </div>
+            </div>
+
+            <!-- Image 4: 7.jpg.jpg -->
+            <div class="interactive-card">
+                <div class="image-wrapper">
+                    <img src="7.jpg.jpg" alt="Sushmita Snapshot 4">
+                </div>
+                <div class="card-details">
+                    <h4>Better Together Concept ❤️</h4>
                     <p>Unconditional evidence that holding onto your hand is way better than any viral internet trend.</p>
+                </div>
+            </div>
+
+            <!-- Image 5: 8.jpg.jpg -->
+            <div class="interactive-card">
+                <div class="image-wrapper">
+                    <img src="8.jpg.jpg" alt="Sushmita Snapshot 5">
+                </div>
+                <div class="card-details">
+                    <h4>The Whole Heart Manifestation ❤️</h4>
+                    <p>Every background folder log in my mind belongs strictly to you. Boundless adoration captured in time.</p>
+                </div>
+            </div>
+
+            <!-- Image 6: Image (10).jpg -->
+            <div class="interactive-card">
+                <div class="image-wrapper">
+                    <img src="Image (10).jpg" alt="Sushmita Snapshot 6">
+                </div>
+                <div class="card-details">
+                    <h4>Forever & Always Framework ❤️</h4>
+                    <p>No filters needed. Your natural brightness completely overrides any regular photography setups.</p>
                 </div>
             </div>
         </section>
@@ -606,12 +716,16 @@
         </footer>
     </div>
 
+    <!-- STICKY INTERACTIVE INTERFACE TRIGGER -->
+    <div class="sticky-love-container" id="asmin-interactive-bar">
+        <button class="asmin-love-btn" onclick="igniteFirecrackers()">Asmin Loves You 👑</button>
+    </div>
+
     <script>
         let heartInterval;
         let textInterval;
 
         function startHeavierClassyShowers() {
-            // Re-targeted upward bubble interval (slowed down slightly for emotional grace)
             heartInterval = setInterval(spawnPureRedHeart, 160);
             textInterval = setInterval(spawnClassyLoveText, 1800);
         }
@@ -626,6 +740,7 @@
                 document.getElementById('page-lock').classList.remove('active-view');
                 document.getElementById('main-navigation-bar').style.display = 'flex';
                 document.getElementById('asmin-signature-badge').style.display = 'block';
+                document.getElementById('asmin-interactive-bar').style.display = 'block'; // Activate Interactive Engine Bar
                 
                 const galleryView = document.getElementById('page-gallery');
                 galleryView.style.display = 'block';
@@ -689,7 +804,6 @@
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.fontSize = (Math.random() * 16 + 16) + "px";
             
-            // Slowed down rise time (3.5 to 5.5 seconds) to drift beautifully like carbonation fizz
             const speed = (Math.random() * 2 + 3.5); 
             heart.style.animation = `heartFastRise ${speed}s ease-out forwards`;
             
@@ -704,12 +818,64 @@
             
             container.style.left = Math.random() * 70 + 15 + "vw";
             
-            // Slow, majestic floating rise speeds for emotional focus
             const slowSpeed = (Math.random() * 2.5 + 6);
             container.style.animation = `elegantSlowRise ${slowSpeed}s ease-in-out forwards`;
             
             document.body.appendChild(container);
             setTimeout(() => { container.remove(); }, slowSpeed * 1000);
+        }
+
+        // 5. NEW: FIRECRACKER & INTERACTIVE SCREEN HEARTS TRIGGER
+        function igniteFirecrackers() {
+            // Location points matching button center area 
+            const sourceX = window.innerWidth / 2;
+            const sourceY = window.innerHeight - 45;
+            
+            const sparkPalettes = ['#f40009', '#ff4d5a', '#ffb3c6', '#ffffff', '#ffccd5'];
+
+            // A. Instantiate Firecracker Explosive Sparks
+            for (let i = 0; i < 65; i++) {
+                const spark = document.createElement('div');
+                spark.classList.add('sparkle-burst');
+                
+                spark.style.left = sourceX + 'px';
+                spark.style.top = sourceY + 'px';
+                spark.style.backgroundColor = sparkPalettes[Math.floor(Math.random() * sparkPalettes.length)];
+
+                // Calculate random trajectory spread (full omnidirectional circle)
+                const vectorAngle = Math.random() * Math.PI * 2;
+                const radiusBurst = 40 + Math.random() * 190;
+                const xVal = Math.cos(vectorAngle) * radiusBurst;
+                const yVal = Math.sin(vectorAngle) * radiusBurst;
+
+                spark.style.setProperty('--x', `${xVal}px`);
+                spark.style.setProperty('--y', `${yVal}px`);
+
+                document.body.appendChild(spark);
+                setTimeout(() => { spark.remove(); }, 1000);
+            }
+
+            // B. Launch Massive Wave of Intermittent Screen Hearts
+            const loveEmojis = ['❤️', '💖', '💕', '🌹', '🥰', '💘', '✨'];
+            for (let j = 0; j < 30; j++) {
+                const activeHeart = document.createElement('div');
+                activeHeart.classList.add('interactive-heart');
+                
+                activeHeart.style.left = Math.random() * 95 + 'vw';
+                activeHeart.style.bottom = '-60px';
+                activeHeart.innerText = loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
+
+                const driftX = (Math.random() - 0.5) * 160; 
+                const rotationalAngle = (Math.random() - 0.5) * 360; 
+                
+                activeHeart.style.setProperty('--driftX', `${driftX}px`);
+                activeHeart.style.setProperty('--rot', `${rotationalAngle}deg`);
+                activeHeart.style.fontSize = (16 + Math.random() * 22) + 'px';
+                activeHeart.style.animationDelay = (Math.random() * 0.35) + 's';
+
+                document.body.appendChild(activeHeart);
+                setTimeout(() => { activeHeart.remove(); }, 2500);
+            }
         }
     </script>
 </body>
