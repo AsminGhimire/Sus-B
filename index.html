@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Secret: For Sushmita's Eyes Only ❤️</title>
-    <!-- Elegant Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Sushmita's Golden 26th Birthday • 16 June 2026</title>
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600;700&family=Sacramento&display=swap" rel="stylesheet">
     <style>
-        /* --- DESIGN FRAMEWORK & KEYFRAMES --- */
+        /* --- MOBILE RESET & ULTRA GAMER FX --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,652 +15,1484 @@
             -webkit-tap-highlight-color: transparent;
         }
         body {
-            font-family: 'Poppins', 'Georgia', serif;
-            background-color: #080104;
+            font-family: 'Poppins', sans-serif;
+            background-color: #050002;
             color: #fff;
             overflow-x: hidden;
-            scroll-behavior: smooth;
-            padding-bottom: 90px; /* Space for the handy bottom navigation */
+            padding-bottom: 90px;
         }
         
+        /* Floating Dynamic Global Date Banner */
+        .date-badge {
+            text-align: center;
+            background: linear-gradient(90deg, #7a0004, #f40009, #7a0004);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 8px;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(244,0,9,0.4);
+            z-index: 10002;
+            position: relative;
+        }
+
+        /* Ambient Music Control Bar */
+        .music-controller-bar {
+            text-align: center;
+            background: #20010b;
+            color: #ffd700;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 12px;
+            border-bottom: 2px solid #00ffcc;
+            cursor: pointer;
+            z-index: 10003;
+            position: relative;
+            animation: pulseMusicBar 2s infinite alternate;
+        }
+        @keyframes pulseMusicBar {
+            0% { background: #20010b; box-shadow: inset 0 0 5px #ff4d5a; }
+            100% { background: #4a0216; box-shadow: inset 0 0 15px #00ffcc; }
+        }
+
+        /* Ambient Love Header Bar */
+        .ambient-badge {
+            display: none;
+            text-align: center;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #ffffff;
+            background: rgba(20, 2, 8, 0.95);
+            padding: 12px;
+            border-bottom: 2px solid #f40009;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 10001;
+        }
+
+        /* Clean Mobile Navigation Bar */
+        .top-navbar {
+            display: none;
+            justify-content: space-around;
+            background: rgba(12, 1, 5, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 45px; 
+            z-index: 10000;
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+        .top-nav-btn {
+            background: none;
+            border: none;
+            color: #b3a2a6;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .top-nav-btn.active {
+            color: #fff;
+            background: #f40009;
+            box-shadow: 0 0 10px #f40009;
+        }
+        .arcade-btn-nav {
+            color: #00ffcc !important;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px #00ffcc;
+        }
+        .arcade-btn-nav.active {
+            background: #00ffcc !important;
+            color: #000 !important;
+            box-shadow: 0 0 15px #00ffcc;
+            text-shadow: none;
+        }
+        .logout-btn {
+            color: #ff4d5a !important;
+        }
+
+        /* Views Layout Panel */
         .page-view {
             display: none;
-            opacity: 0;
             width: 100%;
-            min-height: 100vh;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            padding: 40px 16px 120px 16px;
+            max-width: 480px; 
+            margin: 0 auto;
+            padding: 20px 16px;
         }
         .active-view {
             display: block;
-            opacity: 1;
         }
 
-        /* --- PREMIUM AMBIENT BADGE --- */
-        .ambient-asmin-signature {
-            text-align: center;
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            font-size: 0.9rem;
-            color: #ffffff;
-            background: rgba(24, 2, 9, 0.85);
-            padding: 12px;
-            border-bottom: 2px solid #f40009;
-            letter-spacing: 1px;
-            backdrop-filter: blur(12px);
-            display: none;
-            margin-bottom: 20px;
-        }
-
-        /* --- STAGE 1: PORTAL --- */
+        /* --- STAGE 1: GATEWAYS PORTAL --- */
         #page-lock {
-            background: radial-gradient(circle at center, #1c020b 0%, #050002 100%);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            min-height: 80vh;
+            padding: 10px 20px;
         }
-        .briefcase-container {
-            background: rgba(15, 2, 8, 0.65);
-            border: 1px solid rgba(244, 0, 9, 0.4);
-            backdrop-filter: blur(20px);
-            padding: 40px 20px;
+        .lock-box {
+            background: rgba(22, 2, 10, 0.9);
+            border: 2px solid #f40009;
             border-radius: 24px;
-            max-width: 440px;
+            padding: 35px 20px;
             width: 100%;
+            max-width: 400px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 15px 35px rgba(244, 0, 9, 0.3);
+            position: relative;
+            z-index: 10;
         }
-        .briefcase-container h1 {
-            font-size: 1.6rem;
-            color: #f40009;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+        .lock-box h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 3rem;
+            margin-bottom: 5px;
+            color: #ffd700;
+            text-shadow: 0 0 12px rgba(255,215,0,0.6);
+        }
+        .moon-phrase {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+            margin: 5px 0 15px 0;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
+        .celebration-sub {
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            color: #ff4d5a;
+            font-weight: bold;
             text-transform: uppercase;
+            margin-bottom: 15px;
         }
-        .briefcase-container p {
-            color: #ccc;
-            font-size: 0.9rem;
+        .nepali-quote {
+            font-size: 1.05rem;
+            color: #fff;
+            margin: 18px 0;
+            font-weight: 600;
             line-height: 1.6;
-            margin-bottom: 25px;
+            border-left: 3px solid #f40009;
+            border-right: 3px solid #f40009;
+            padding: 0 12px;
         }
-        .briefcase-container input {
+        .lock-box p {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        .lock-box input {
             width: 100%;
-            padding: 16px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            background: #000;
+            border: 1px solid #444;
             color: #fff;
             text-align: center;
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            outline: none;
-            margin-bottom: 25px;
+            font-size: 1.1rem;
             border-radius: 12px;
+            margin-bottom: 20px;
+            outline: none;
         }
-        .action-master-btn, .nav-btn {
-            padding: 14px 35px;
+        .lock-box input:focus {
+            border-color: #f40009;
+            box-shadow: 0 0 10px rgba(244,0,9,0.5);
+        }
+
+        /* Standard Buttons */
+        .primary-btn {
             background: linear-gradient(135deg, #f40009 0%, #9e0006 100%);
             color: white;
             border: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            padding: 15px;
+            width: 100%;
             border-radius: 50px;
-            box-shadow: 0 8px 20px rgba(244, 0, 9, 0.3);
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(244, 0, 9, 0.4);
+            margin-bottom: 15px;
+        }
+        .surprise-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+            color: #000;
+            border: none;
+            padding: 13px;
             width: 100%;
-        }
-
-        /* --- MODERN MOBILE BOTTOM NAVIGATION BAR --- */
-        .app-nav {
-            display: none;
-            justify-content: space-around;
-            align-items: center;
-            background: rgba(15, 2, 8, 0.92);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 75px;
-            z-index: 99999;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(25px);
-            padding-bottom: env(safe-area-inset-bottom); /* iOS Swipe Bar fix */
-        }
-        .nav-link {
-            color: #8e7d81;
-            text-decoration: none;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            flex: 1;
-            height: 100%;
-            transition: all 0.3s ease;
-        }
-        .nav-link .nav-icon {
-            font-size: 1.4rem;
-        }
-        .nav-link.active {
-            color: #ff4d5a;
-            font-weight: 600;
-            text-shadow: 0 0 10px rgba(255, 77, 90, 0.3);
-        }
-
-        /* --- STAGE 2: GALLERY --- */
-        .section-header {
-            text-align: center;
-            margin: 10px 0 30px 0;
-        }
-        .section-header h2 {
-            font-size: 1.6rem;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-        .section-header p {
-            font-style: italic;
-            color: #b3a2a6;
+            border-radius: 50px;
+            font-weight: bold;
             font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
         }
-        .animated-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            max-width: 500px;
-            margin: 0 auto;
+
+        /* --- THE ULTIMATE CHAPTER 26 AGE-EVOLUTION MATRIX OVERLAY --- */
+        #transition-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #050002 0%, #170005 100%);
+            z-index: 999999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 1s ease-out;
         }
-        @media(min-width: 768px) {
-            .animated-grid { grid-template-columns: repeat(2, 1fr); max-width: 900px; }
+        .evolution-counter-box {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: #00ffcc;
+            text-shadow: 0 0 30px #00ffcc;
+            margin-bottom: 10px;
         }
-        
-        .interactive-card {
-            background: #110207;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .image-wrapper {
-            width: 100%;
-            height: 380px;
-            overflow: hidden;
-        }
-        .interactive-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .card-details {
-            padding: 20px;
-            background: #110207;
-        }
-        .card-details h4 {
+        .evolution-caption {
             font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #ff4d5a;
+            text-align: center;
+            min-height: 30px;
+            text-transform: uppercase;
         }
-        .card-details p {
+        .final-chapter-title {
+            display: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: #ffd700;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 0 0 25px #ff0055, 0 0 50px #ffd700;
+            animation: pulseGlow 1s ease-in-out infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(0.96); text-shadow: 0 0 20px #f40009; }
+            100% { transform: scale(1.04); text-shadow: 0 0 40px #ffd700; }
+        }
+
+        /* --- STAGE 2: CAPTURES ALBUM --- */
+        .page-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 3px;
+            text-shadow: 0 0 8px rgba(255,215,0,0.3);
+        }
+        .page-subtitle {
+            text-align: center;
             font-size: 0.85rem;
             color: #b3a2a6;
-            line-height: 1.5;
+            margin-bottom: 25px;
         }
-
-        /* Lyric Ticker Block */
-        .lyric-ticker {
-            background: linear-gradient(135deg, #24020d 0%, #110207 100%);
-            border: 1px solid rgba(244, 0, 9, 0.3);
-            padding: 30px 20px;
+        .photo-card {
+            background: #140209;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-desc {
+            padding: 15px;
             text-align: center;
-            border-radius: 20px;
-            margin: 40px auto;
-            max-width: 500px;
         }
-        .lyric-ticker h3 {
+        .photo-desc h3 {
             font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 10px;
-            color: #ffb3c1;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+        .photo-desc p {
+            font-size: 0.85rem;
+            color: #ccc;
+            line-height: 1.4;
         }
 
-        /* --- STAGE 3: COZY LOUNGE (MOBILE ACCESSIBLE) --- */
-        .menu-board {
+        /* --- STAGE 3: COZY LOUNGE --- */
+        .lounge-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            max-width: 500px;
-            margin: 20px auto;
+            margin-bottom: 20px;
         }
-        .food-item-button {
-            background: rgba(25, 2, 10, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .lounge-item {
+            background: #16030a;
+            border: 1px solid #333;
             border-radius: 16px;
-            padding: 15px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .food-item-button:active {
-            transform: scale(0.95);
-            border-color: #f40009;
-        }
-        .food-item-button .emoji {
-            font-size: 2.2rem;
-            margin-bottom: 6px;
-        }
-        .food-item-button span {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: #ecd6da;
+            padding: 20px 10px;
             text-align: center;
-            letter-spacing: 0.5px;
+            cursor: pointer;
         }
-        
-        /* Fixed Theater Screen Height to Prevent Mobile Content Hidden/Jumping */
-        .theater-screen {
-            background: #040002;
-            border: 2px solid rgba(244, 0, 9, 0.4);
-            border-radius: 20px;
-            max-width: 500px;
-            margin: 20px auto;
+        .lounge-item:active {
+            border-color: #f40009;
+            transform: scale(0.98);
+        }
+        .lounge-item .icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+        .lounge-item span {
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: block;
+        }
+        .display-box {
+            background: #000;
+            border: 2px solid #f40009;
+            border-radius: 16px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            min-height: 180px;
+            min-height: 120px;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 15px;
         }
-        .theater-screen p {
+        .display-box p {
             font-size: 0.95rem;
-            color: #ecd6da;
-            line-height: 1.6;
-            font-style: italic;
-            z-index: 5;
+            line-height: 1.5;
+            color: #fff;
         }
 
-        /* Ambient Dynamic Effect Bubbles */
-        .lounge-particle {
-            position: absolute;
-            bottom: -20px;
-            pointer-events: none;
-            opacity: 0;
-            z-index: 2;
-            animation: particleRise 2s linear forwards;
+        .reasons-container {
+            margin-bottom: 25px;
+            text-align: center;
         }
-        @keyframes particleRise {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            20% { opacity: 0.7; }
-            80% { opacity: 0.7; }
-            100% { transform: translateY(-160px) scale(1.2); opacity: 0; }
-        }
-
-        /* Handy Core Navigation Button Placement */
-        .handy-holder {
-            max-width: 500px;
-            margin: 25px auto;
+        .reasons-btn {
+            background: linear-gradient(90deg, #ffd700, #b8860b);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
         }
 
-        /* --- STAGE 4: VAULT SCROLL --- */
-        .scroll-letter {
-            background: #fdfbf7;
-            color: #1a1113;
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 40px 20px;
-            border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-            line-height: 1.8;
-            font-size: 1rem;
-            border-top: 6px solid #f40009;
+        /* --- ADVANCED NEON GAMER ARCADE SUITE --- */
+        .arcade-container-frame {
+            background: linear-gradient(180deg, #100106 0%, #030001 100%);
+            border: 2px solid #00ffcc;
+            border-radius: 20px;
+            padding: 15px 10px;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.25);
         }
-        .scroll-letter p {
-            margin-bottom: 16px;
-            font-family: 'Georgia', serif;
+        .arcade-menu {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            background: #000;
+            padding: 6px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 255, 204, 0.3);
         }
-        
-        .cinema-vlog {
-            max-width: 500px;
-            margin: 30px auto;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            aspect-ratio: 16/9;
-            background-color: #000;
-            border-radius: 16px;
+        .arcade-tab-btn {
+            background: transparent;
+            border: none;
+            color: #00ffcc;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            padding: 8px 2px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .arcade-tab-btn.active-sub {
+            background: #00ffcc;
+            color: #000;
+            font-weight: 900;
+            box-shadow: 0 0 8px #00ffcc;
+        }
+        .game-subview {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .game-title-neon {
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffcc;
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 4px;
+            text-shadow: 0 0 8px #00ffcc;
+            text-align: center;
+        }
+        .game-help-text {
+            font-size: 0.8rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-align: center;
+            max-width: 280px;
+        }
+
+        /* GAME 1: SOULMATE MATCHING GRID */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            width: 260px;
+            margin-bottom: 15px;
+        }
+        .memory-card {
+            background: #111;
+            border: 1px solid #333;
+            color: transparent;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .memory-card.flipped {
+            background: #17020a;
+            border-color: #ff0055;
+            color: #fff;
+        }
+        .memory-card.matched {
+            background: #00ffcc !important;
+            border-color: #fff !important;
+            color: #000 !important;
+            box-shadow: 0 0 10px #00ffcc;
+            cursor: default;
+        }
+
+        /* GAME 2: ADRENALINE CLICKER setup */
+        .clicker-reactor-core {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff0055 0%, #7a0026 100%);
+            border: 4px dashed #fff;
+            box-shadow: 0 0 20px #ff0055;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            animation: spinCore 4s linear infinite;
+            margin: 15px 0;
+        }
+        @keyframes spinCore {
+            100% { transform: rotate(360deg); }
+        }
+        .clicker-reactor-core:active {
+            transform: scale(0.92);
+            box-shadow: 0 0 30px #00ffcc;
+        }
+        .clicker-label {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        .progress-bar-wrap {
+            width: 220px;
+            height: 12px;
+            background: #222;
+            border-radius: 6px;
             overflow: hidden;
+            border: 1px solid #444;
+            margin-top: 10px;
         }
-        .cinema-vlog iframe {
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff0055, #00ffcc);
+            transition: width 0.1s ease;
+        }
+
+        /* GAME 3: SLIDER GRID */
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            width: 240px;
+            height: 240px;
+            background-color: #000;
+            padding: 6px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        .puzzle-tile {
+            background: linear-gradient(135deg, #00ffcc 0%, #006652 100%);
+            color: #000;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .puzzle-tile.empty {
+            background: transparent;
+            cursor: default;
+        }
+
+        /* GAME 4: WORD SUDOKU H-E-A-R-T */
+        .sudoku-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            width: 240px;
+            height: 240px;
+            background: #000;
+            padding: 6px;
+            border-radius: 10px;
+            border: 1px solid #00ffcc;
+        }
+        .sudoku-cell {
             width: 100%;
             height: 100%;
-            border: 0;
-        }
-
-        /* --- STICKY LOVE TRIGGER --- */
-        .sticky-love-container {
-            position: fixed;
-            bottom: 90px; /* Aligned safely right above bottom tabs */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 500px;
-            z-index: 10005;
-            display: none;
-        }
-        .asmin-love-btn {
-            background: linear-gradient(45deg, #f40009, #ff4d5a);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 14px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            box-shadow: 0 8px 20px rgba(244, 0, 9, 0.5);
-            cursor: pointer;
-            width: 100%;
-            letter-spacing: 1px;
+            background: #111;
+            border: 1px solid #222;
+            color: #00ffcc;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            text-align: center;
+            outline: none;
+            border-radius: 4px;
             text-transform: uppercase;
         }
+        .sudoku-cell:disabled {
+            color: #ffffff;
+            background: #20010b;
+            font-weight: bold;
+        }
 
-        /* Particle Burst Engine */
-        .sparkle-burst {
+        /* GAME 5: LOVE CATCHER FALLING ENGINE */
+        #catcher-canvas {
+            background: #050003;
+            border: 2px solid #00ffcc;
+            border-radius: 8px;
+            box-shadow: inset 0 0 12px rgba(0,255,204,0.2);
+            cursor: pointer;
+        }
+        .catcher-controls {
+            display: flex;
+            gap: 20px;
+            width: 240px;
+            margin-top: 10px;
+        }
+        .control-btn {
+            flex: 1;
+            background: #111;
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+            font-size: 1.3rem;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .control-btn:active {
+            background: #00ffcc;
+            color: #000;
+        }
+
+        /* Global Arcade Shared UI Tags */
+        .arcade-status-msg {
+            color: #ffd700;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 12px;
+            font-size: 1rem;
+            min-height: 24px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .arcade-action-btn {
+            background: transparent;
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        /* --- STAGE 4: LETTERS MATRIX --- */
+        .letter-box {
+            background: #fdfbf7;
+            color: #1a1113;
+            padding: 30px 20px;
+            border-radius: 16px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .letter-box p {
+            margin-bottom: 15px;
+        }
+        .love-highlight {
+            font-style: italic;
+            border-left: 2px solid #f40009;
+            padding-left: 10px;
+            margin: 10px 0;
+            color: #4a0e17;
+        }
+        .blessing-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff5f5;
+            border: 1px dashed #f40009;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: #b30006;
+        }
+
+        /* --- FLOATING ENGINES & RENDERS --- */
+        .shower-item {
             position: fixed;
-            width: 6px;
-            height: 6px;
+            bottom: -50px;
+            pointer-events: none;
+            z-index: 99999;
+            animation: riseUp 3s linear forwards;
+        }
+        @keyframes riseUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            15% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-105vh) scale(1.2); opacity: 0; }
+        }
+
+        .sparkle {
+            position: fixed;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             pointer-events: none;
             z-index: 100000;
-            animation: firecrackerBlast 0.8s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+            animation: explode 1s ease-out forwards;
         }
-        .interactive-heart {
-            position: fixed;
-            pointer-events: none;
-            z-index: 100000;
-            animation: heartScreenFloat 2.2s ease-out forwards;
-        }
-        @keyframes firecrackerBlast {
-            0% { transform: translate(0, 0) scale(1.5); opacity: 1; }
-            100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
-        }
-        @keyframes heartScreenFloat {
-            0% { transform: translateY(10vh) scale(0); opacity: 0; }
-            15% { opacity: 1; transform: translateY(0) scale(1.2); }
-            100% { transform: translateY(-90vh) translateX(var(--driftX)) scale(0.6) rotate(var(--rot)); opacity: 0; }
+        @keyframes explode {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)); opacity: 0; }
         }
 
-        footer {
-            padding: 20px 0 40px 0;
-            color: #6b5458;
-            font-size: 0.75rem;
+        .birthday-banner {
+            position: fixed;
+            pointer-events: none;
+            color: #ffd700;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            z-index: 99999;
+            text-shadow: 0 0 15px #f40009;
+            animation: bannerFade 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            width: 100%;
+            left: 0;
+        }
+        @keyframes bannerFade {
+            0% { transform: scale(0.5) translateY(0); opacity: 0; }
+            20% { transform: scale(1.1) translateY(-10px); opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: scale(1) translateY(-100px); opacity: 0; }
+        }
+
+        /* --- FLOATING FOOTER BAR --- */
+        .love-footer-wrap {
+            display: none;
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            z-index: 9999;
+        }
+        .love-footer-wrap button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(45deg, #f40009, #ff4d5a);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(244,0,9,0.4);
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+        .love-footer-wrap button:active {
+            transform: scale(0.96);
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-asmin-signature" id="asmin-signature-badge">
-        🌹 Asmin loves you to the moon and back...
+    <!-- TIMELESS DATED HEADER GRID BANNER -->
+    <div class="date-badge">✨ SUSHMITA'S GOLDEN 26TH BIRTHDAY • 16 JUNE 2026 ✨</div>
+
+    <!-- AUDIO CONTROLLER BAR WITH MUSIC ICON PULSE -->
+    <div class="music-controller-bar" id="music-indicator" onclick="startMusic()">🎵 Tap to Turn On Birthday Music 🎵</div>
+
+    <!-- RE-ENGINEERED MELODIOUS AUDIO PATHWAY FOR MAXIMUM COMPATIBILITY -->
+    <audio id="bg-music" loop preload="auto" crossorigin="anonymous">
+        <source src="https://assets.mixkit.co/active_storage/sfx/123/123-100.wav" type="audio/wav">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- FLOATING TOP DECORATOR BADGE -->
+    <div class="ambient-badge" id="ambient-love-line">
+        👑 Celebrating Chapter 26 of Princess Sushmita ❤️ Asmin loves you forever...
     </div>
 
-    <!-- LOCK SCREEN PORTAL -->
-    <div id="page-lock" class="page-view active-view">
-        <div class="briefcase-container">
-            <h1>🕵️‍♀️ Target Profile: Sushmita</h1>
-            <p>Enter our secret lowercase phrase to load your layout.</p>
-            <input type="password" id="vault-key" placeholder="••••••••">
-            <button class="action-master-btn" onclick="unlockMultiPageSystem()">Decrypt Mainframe</button>
-            <div id="lock-error" style="color: #f40009; font-weight: bold; margin-top: 15px; font-size: 0.85rem; display: none;">❌ ACCESS DENIED. Keep trying! ❤️</div>
-        </div>
-    </div>
-
-    <!-- STAGE 2: PICTURES WITH CORRECT INTERACTIVE CARD LINK -->
-    <div id="page-gallery" class="page-view">
-        <div class="section-header">
-            <h2>Sushmita's Captures 📸</h2>
-            <p>Every frame captures my absolute favorite view in existence.</p>
-        </div>
-
-        <section class="animated-grid">
-            <!-- Updated Blank Slot 1 as Requested -->
-            <div class="interactive-card">
-                <div class="image-wrapper">
-                    <img src="3.jpg.jpg" alt="Sushmita Snapshot 1">
-                </div>
-                <div class="card-details">
-                    <h4>मेरी प्यारी माया 💛</h4>
-                    <p>No matter the angle or setup, you are the most gorgeous reality layout in my life.</p>
-                </div>
-            </div>
-
-            <div class="interactive-card">
-                <div class="image-wrapper">
-                    <img src="5.jpg.jpg" alt="Sushmita Snapshot 2">
-                </div>
-                <div class="card-details">
-                    <h4>Pure Cinematic Brilliance ❤️</h4>
-                    <p>One single look from you alters my complete reality timeline layout.</p>
-                </div>
-            </div>
-
-            <div class="interactive-card">
-                <div class="image-wrapper">
-                    <img src="7.jpg.jpg" alt="Sushmita Snapshot 3">
-                </div>
-                <div class="card-details">
-                    <h4>Better Together Concept ❤️</h4>
-                    <p>Boundless proof that holding your hand overrides any trending configuration.</p>
-                </div>
-            </div>
-
-            <div class="interactive-card">
-                <div class="image-wrapper">
-                    <img src="8.jpg.jpg" alt="Sushmita Snapshot 4">
-                </div>
-                <div class="card-details">
-                    <h4>The Whole Heart Manifestation ❤️</h4>
-                    <p>Every background storage directory in my mind belongs strictly to you.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="lyric-ticker">
-            <h3>"तिम्रो मुस्कानले यो मन पग्लिदिन्छ,<br>तिम्रो सामीप्यताले संसारै रङ्गिन्छ..." ❤️</h3>
-        </div>
-
-        <div class="handy-holder">
-            <button class="nav-btn" onclick="document.getElementById('link-cafe').click()">Proceed to Cozy Lounge 🍿</button>
-        </div>
-    </div>
-
-    <!-- STAGE 3: COZY LOUNGE (FIXED GRAPHICS & EFFECTS) -->
-    <div id="page-cafe" class="page-view">
-        <div class="section-header">
-            <h2>Cozy Lounge 🍿</h2>
-            <p>Tap your favorite obsessions to unleash physical pop effects & custom words!</p>
-        </div>
-
-        <div class="menu-board">
-            <div class="food-item-button" onclick="displayLoungeNote('coke')">
-                <div class="emoji">🥤</div>
-                <span>Ice-Cold Coke</span>
-            </div>
-            <div class="food-item-button" onclick="displayLoungeNote('tiktok')">
-                <div class="emoji">📱</div>
-                <span>TikTok Drafts</span>
-            </div>
-            <div class="food-item-button" onclick="displayLoungeNote('samosa')">
-                <div class="emoji">🥟</div>
-                <span>Samosa & Tea</span>
-            </div>
-            <div class="food-item-button" onclick="displayLoungeNote('photography')">
-                <div class="emoji">📸</div>
-                <span>Aesthetics</span>
-            </div>
-        </div>
-
-        <div class="theater-screen" id="lounge-screen">
-            <p id="lounge-screen-text">✨ Tap any of your obsessions above to extract historical logs... ✨</p>
-        </div>
-
-        <!-- Handy Placed Archive Button right on the core active layout view screen -->
-        <div class="handy-holder">
-            <button class="nav-btn" style="background: linear-gradient(135deg, #ff4d5a 0%, #b50e1a 100%);" onclick="document.getElementById('link-vault').click()">मेरो मायालाई पत्र 💌</button>
-        </div>
-    </div>
-
-    <!-- STAGE 4: VAULT ARCHIVE -->
-    <div id="page-vault" class="page-view">
-        <div class="section-header">
-            <h2>मेरो मायालाई पत्र 💌</h2>
-            <p>Declassified completely just for your birthday celebration, Sushmita.</p>
-        </div>
-
-        <article class="scroll-letter">
-            <p>To my absolute favorite human, Sushmita,</p>
-            <p>I custom coded this entire network layout from scratch because a generic card could never encompass everything that makes you amazing. Out of the billions of people walking this planet, my eyes, my heart, and my entire soul have permanently anchored themselves to you. You are my home, my peace, and my greatest adventure all wrapped into one perfect human being.</p>
-            <p>From watching you carefully pick out the absolute perfect filter configurations for your pictures, to drafting aesthetic TikTok transitions where you look so drop-dead gorgeous it leaves me completely speechless, to seeing your face light up with that beautiful, priceless smile when opening a fresh, ice-cold bottle of Coca-Cola—every single layer of your personality is my absolute favorite thing to document in this life.</p>
-            <p>Thank you for just being you, for loving me, and for filling my life with a warmth I didn't know existed before you. I am yours through every sunset, every laughter, every frame, and every single lifetime.</p>
-            <p style="font-family:'Georgia'; font-style:italic; font-size:1.3rem; color:#f40009; margin-bottom:5px; font-weight:bold;">Asmin</p>
-            <p style="font-weight: bold; color: #f40009; font-size: 1.1rem;">I LOVE YOU SO MUCH! ❤️💍</p>
-        </article>
-
-        <section class="cinema-vlog">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        </section>
-
-        <footer>
-            <p>Designed with absolute devotion ❤️ Happy Birthday, Sushmita!</p>
-        </footer>
-    </div>
-
-    <!-- HANDY BOTTOM BAR NAVIGATION LAYOUT -->
-    <nav class="app-nav" id="main-navigation-bar">
-        <div class="nav-link active" id="link-gallery" onclick="navigateToPage('page-gallery', this)">
-            <span class="nav-icon">📸</span>
-            <span>Captures</span>
-        </div>
-        <div class="nav-link" id="link-cafe" onclick="navigateToPage('page-cafe', this)">
-            <span class="nav-icon">🍿</span>
-            <span>Lounge</span>
-        </div>
-        <div class="nav-link" id="link-vault" onclick="navigateToPage('page-vault', this)">
-            <span class="nav-icon">💌</span>
-            <span>पत्र</span>
-        </div>
+    <!-- APP NAVIGATION BAR FRAME -->
+    <nav class="top-navbar" id="top-nav">
+        <button class="top-nav-btn active" onclick="switchTab('page-gallery', this)">📸 Captures</button>
+        <button class="top-nav-btn" onclick="switchTab('page-cafe', this)">🍿 Lounge</button>
+        <button class="top-nav-btn" onclick="switchTab('page-vault', this)">💌 पत्र</button>
+        <button class="top-nav-btn arcade-btn-nav" onclick="switchTab('page-arcade', this)">🕹️ Arcade</button>
+        <button class="top-nav-btn logout-btn" onclick="handleSystemLogout()">🔒 Logout</button>
     </nav>
 
-    <!-- STICKY BOTTOM BUTTON -->
-    <div class="sticky-love-container" id="asmin-interactive-bar">
-        <button class="asmin-love-btn" onclick="igniteFirecrackers()">Asmin Loves You 👑</button>
+    <!-- PERFECT AGE-EVOLUTION CINEMATIC TRANSITION OVERLAY -->
+    <div id="transition-overlay">
+        <div class="evolution-counter-box" id="evolution-number">0</div>
+        <div class="evolution-caption" id="evolution-txt">Loading Timeline...</div>
+        <div class="final-chapter-title" id="evolution-final">👑 WELCOME TO CHAPTER 26 👑</div>
+    </div>
+
+    <!-- STAGE 1: PORTAL LOGIN VIEW -->
+    <div id="page-lock" class="page-view active-view">
+        <div class="lock-box">
+            <h1>Happy 26th Birthday</h1>
+            <!-- SIGNATURE PHRASE RIGHT BELOW TITLE -->
+            <div class="moon-phrase">🌙 Asmin loves you to the moon and back... ✨</div>
+            <div class="celebration-sub">✨ June 16, 2026 ✨</div>
+             
+            <div class="nepali-quote">
+                शब्दमा बयान गर्न कहाँ सकिन्छ र मायालाई,<br>मैले त मेरो हरेक खुसीमा तिम्रो अनुहार देखेको छु।
+            </div>
+            
+            <p>Enter our secret lowercase phrase to step into age 26.</p>
+            <input type="password" id="vault-key" placeholder="Enter password...">
+            <button class="primary-btn" onclick="checkPassword()">Unlock Portal ❤️</button>
+            <button class="surprise-btn" onclick="triggerPortalSurprise()">💥 Tap for Birthday Surprise!</button>
+            <div id="lock-error" style="color: #f40009; font-weight: bold; margin-top: 15px; font-size: 0.85rem; display: none;">❌ Incorrect. Try again! ❤️</div>
+        </div>
+    </div>
+
+    <!-- STAGE 2: CAPTURES -->
+    <div id="page-gallery" class="page-view">
+        <h2 class="page-title">Sushmita's Captures 📸</h2>
+        <p class="page-subtitle">Happy 26th Birthday to the prettiest girl • 16 June 2026</p>
+
+        <div class="photo-card">
+            <img src="3.jpg.jpg" alt="Sushmita">
+            <div class="photo-desc">
+                <h3>मेरी प्यारी माया 👑</h3>
+                <p>You look absolutely beautiful in this picture. My absolute favorite view.</p>
+            </div>
+        </div>
+        <div class="photo-card">
+            <img src="5.jpg.jpg" alt="Sushmita">
+            <div class="photo-desc">
+                <h3>Pure Happiness ❤️</h3>
+                <p>Your smile makes every single day bright and completely perfect.</p>
+            </div>
+        </div>
+        <div class="photo-card">
+            <img src="7.jpg.jpg" alt="Sushmita">
+            <div class="photo-desc">
+                <h3>Better Together 🔒</h3>
+                <p>Holding your hand is the best feeling in the entire world.</p>
+            </div>
+        </div>
+        <div class="photo-card">
+            <img src="8.jpg.jpg" alt="Sushmita">
+            <div class="photo-desc">
+                <h3>Forever Yours ✨</h3>
+                <p>Every beautiful thought in my mind belongs strictly to you.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- STAGE 3: COZY LOUNGE -->
+    <div id="page-cafe" class="page-view">
+        <h2 class="page-title">Cozy Lounge 🍿</h2>
+        <p class="page-subtitle">Birthday treats for my favorite 26-year-old!</p>
+
+        <div class="lounge-grid">
+            <div class="lounge-item" onclick="pressLounge('coke')">
+                <div class="icon">🥤</div>
+                <span>Ice-Cold Coke</span>
+            </div>
+            <div class="lounge-item" onclick="pressLounge('tiktok')">
+                <div class="icon">📱</div>
+                <span>TikTok Drafts</span>
+            </div>
+            <div class="lounge-item" onclick="pressLounge('samosa')">
+                <div class="icon">🥟</div>
+                <span>Samosa & Tea</span>
+            </div>
+            <div class="lounge-item" onclick="pressLounge('photography')">
+                <div class="icon">📸</div>
+                <span>Pictures</span>
+            </div>
+        </div>
+
+        <div class="display-box">
+            <p id="lounge-text">✨ Tap any item above or reveal the golden milestones below... ✨</p>
+        </div>
+
+        <div class="reasons-container">
+            <button class="reasons-btn" onclick="revealReason()">✨ Click for 26 Reasons I Love You ✨</button>
+        </div>
+
+        <button class="primary-btn" onclick="openLetterDirectly()">Read: मेरो मायालाई पत्र 💌</button>
+    </div>
+
+    <!-- STAGE 4: LETTERS ARCHIVE -->
+    <div id="page-vault" class="page-view">
+        <h2 class="page-title">मेरो मायालाई पत्र 💌</h2>
+        <p class="page-subtitle">16 June 2026 • Celebrating Your 26th Year</p>
+
+        <article class="letter-box">
+            <p>Dear Sushmita,</p>
+            <p>Happy 26th Birthday! I built this simple page just for you because you deserve something unique as you enter this beautiful new chapter of your life. You are my home, my comfort, and my greatest happiness layout.</p>
+            
+            <p class="love-highlight">"Every single day with you feels like a blessing, but watching you grow into this stunning 26-year-old woman is extra special. You deserve all the love, laughter, and happiness the world has to offer. Thank you for being my constant, my joy, and my favorite person."</p>
+            <p class="love-highlight">"To the one who holds my heart at 26: May this year bring you closer to all your dreams. To my happiest thought: No matter where life takes us, my heart will always find its way back to you."</p>
+
+            <p>Whether you are editing your beautiful photos, making fun TikTok drafts, or smiling over a fresh bottle of cold Coke—I adore every tiny detail about you.</p>
+            <p>Thank you for being in my life and making it so warm. I love you more than words can say.</p>
+            
+            <p>With all my love,</p>
+            <p style="font-weight: bold; color: #f40009; font-size: 1.2rem;">Asmin ❤️</p>
+
+            <div class="blessing-box">
+                "ज्ञानी हुनु है मेरो यही हो आशिर्वाद अनि शुभकामना।" 🌸
+            </div>
+        </article>
+    </div>
+
+    <!-- STAGE 5: ADVANCED HIGH-PERFORMANCE ARCADE SUITE -->
+    <div id="page-arcade" class="page-view">
+        <h2 class="page-title" style="color:#00ffcc; font-family:'Orbitron', sans-serif; font-weight:900;">SUSHMITA'S ARCADE 🕹️</h2>
+        <p class="page-subtitle" style="color:#aaa; margin-bottom:15px;">Level 26 Speed & Intensity Settings Activated!</p>
+
+        <div class="arcade-container-frame">
+            <div class="arcade-menu">
+                <button class="arcade-tab-btn active-sub" onclick="switchArcadeGame('mat', this)">✨ Match</button>
+                <button class="arcade-tab-btn" onclick="switchArcadeGame('rsh', this)">⚡ Rush</button>
+                <button class="arcade-tab-btn" onclick="switchArcadeGame('puz', this)">🧩 Slide</button>
+                <button class="arcade-tab-btn" onclick="switchArcadeGame('sud', this)">🔠 Word</button>
+                <button class="arcade-tab-btn" onclick="switchArcadeGame('cth', this)">💖 Catch</button>
+            </div>
+
+            <!-- GAME 1: SOULMATE MATCHING GRID -->
+            <div id="sub-game-match" class="game-subview" style="display:flex;">
+                <div class="game-title-neon">SOULMATE MATCH</div>
+                <div class="game-help-text">Flip the custom matrix blocks to pair all love components!</div>
+                <div class="memory-grid" id="arcade-memory-grid"></div>
+                <button class="arcade-action-btn" onclick="initMemoryGame()">Reset Grid 🔄</button>
+                <div class="arcade-status-msg" id="match-msg"></div>
+            </div>
+
+            <!-- GAME 2: ADRENALINE CLICKER CORE -->
+            <div id="sub-game-rush" class="game-subview">
+                <div class="game-title-neon">26 CORE REACTOR</div>
+                <div class="game-help-text">Tap the core rapidly 26 times to unlock her power stream!</div>
+                <div class="clicker-reactor-core" onclick="handleReactorCoreClick()">
+                    <div class="clicker-label" id="reactor-score-node">TAP!</div>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" id="reactor-progress-bar"></div>
+                </div>
+                <div class="arcade-status-msg" id="rush-msg">Score: 0 / 26</div>
+            </div>
+
+            <!-- GAME 3: SLIDING PUZZLE -->
+            <div id="sub-game-puzzle" class="game-subview">
+                <div class="game-title-neon">BLOCK MATRIX</div>
+                <div class="game-help-text">Tap the mixed block to snap the grid together!</div>
+                <div class="puzzle-grid" id="arcade-puzzle-board"></div>
+                <button class="arcade-action-btn" onclick="initBlockPuzzle()">Reset Grid 🔄</button>
+                <div class="arcade-status-msg" id="puzzle-msg"></div>
+            </div>
+
+            <!-- GAME 4: WORD SUDOKU -->
+            <div id="sub-game-sudoku" class="game-subview">
+                <div class="game-title-neon">WORD SUDOKU</div>
+                <div class="game-help-text">Fill the 2 empty blanks with letters 'E' or 'A'!</div>
+                <div class="sudoku-grid" id="arcade-sudoku-board"></div>
+                <button class="arcade-action-btn" onclick="checkSudokuSolution()">Check Answers 🔓</button>
+                <div class="arcade-status-msg" id="sudoku-msg"></div>
+            </div>
+
+            <!-- GAME 5: LOVE CATCHER HIGH SPEED CHALLENGE -->
+            <div id="sub-game-catcher" class="game-subview">
+                <div class="game-title-neon">CATCH 26 HEARTS</div>
+                <div class="game-help-text">Can you track down 26 falling tokens for your 26th year? Tap sides or arrows!</div>
+                <canvas id="catcher-canvas" width="240" height="240"></canvas>
+                
+                <div class="catcher-controls">
+                    <button class="control-btn" id="btn-move-left" onmousedown="startCatcherMove(-15)" ontouchstart="startCatcherMove(-15)" onmouseup="stopCatcherMove()" ontouchend="stopCatcherMove()">◀ Left</button>
+                    <button class="control-btn" id="btn-move-right" onmousedown="startCatcherMove(15)" ontouchstart="startCatcherMove(15)" onmouseup="stopCatcherMove()" ontouchend="stopCatcherMove()">Right ▶</button>
+                </div>
+                <button class="arcade-action-btn" onclick="initCatcherGame()">Restart Run 🎮</button>
+                <div class="arcade-status-msg" id="catcher-msg">Score: 0 / 26</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM FIXED FOOTER ACTION CONTAINER -->
+    <div class="love-footer-wrap" id="love-footer">
+        <button onclick="handleLoveFooterClick()">Asmin Loves You Forever 👑</button>
     </div>
 
     <script>
-        // Password System Verification
-        function unlockMultiPageSystem() {
-            const keyInput = document.getElementById('vault-key').value;
-            const errorBanner = document.getElementById('lock-error');
-            const targetPassword = 'love'; 
+        let globalShowerInterval;
+        let puzState = [1, 2, 3, 4, 5, 6, 7, "", 8]; 
+        let clickerScore = 0;
+        let currentReasonIdx = 0;
 
-            if (keyInput.toLowerCase() === targetPassword) {
-                document.getElementById('page-lock').classList.remove('active-view');
-                document.getElementById('main-navigation-bar').style.display = 'flex';
-                document.getElementById('asmin-signature-badge').style.display = 'block';
-                document.getElementById('asmin-interactive-bar').style.display = 'block';
+        const reasonsList = [
+            "1. Your beautiful maturity as you turn 26 completely inspires me.",
+            "2. The way your smile instantly eliminates all my stress.",
+            "3. Your loyalty and genuine soul make me the luckiest person.",
+            "4. How drop-dead gorgeous you look in your photos.",
+            "5. Your cute, fun TikTok ideas that showcase your real personality.",
+            "6. The adorable way you drink cold Coke and enjoy life's small treats.",
+            "7. Your warm heart that cares so profoundly for us.",
+            "8. Because age 26 looks absolutely breathtaking on you.",
+            "9. You are not just my love, you are my safe space and my home.",
+            "10. The graceful way you tackle challenges and keep moving forward.",
+            "11. Your laughter is my favorite song in the entire universe.",
+            "12. You make our shared plans feel completely magical.",
+            "13. Your eyes hold an entire world of peace that I never want to leave.",
+            "14. The endless patience you show me every single day.",
+            "15. You make a simple cup of tea and samosa feel like a 5-star date.",
+            "16. Because you are perfectly, uniquely, beautifully you.",
+            "17. Your kindness radiates and makes everyone around you happy.",
+            "18. The way my hand fits flawlessly into yours.",
+            "19. You support my biggest ambitions without hesitation.",
+            "20. You have grown into an exceptional, independent woman.",
+            "21. Every single memory we compile gets better over time.",
+            "22. You look gorgeous even when you are just resting.",
+            "23. Your embrace makes the entire world's noise fade to zero.",
+            "24. You represent my past, my absolute present, and my 2026 future.",
+            "25. You are my true soulmate in every definition of the word.",
+            "26. I love you more at 26 than I ever thought humanly possible! ❤️"
+        ];
+
+        let memoryIcons = ['❤️', '❤️', '💍', '💍', '🎁', '🎁', '👑', '👑', '🌹', '🌹', '🍿', '🍿', '🥤', '🥤', '🔮', '🔮'];
+        let selectedCards = [];
+        let canFlip = true;
+
+        let catcherTimer = null;
+        let catcherX = 90;
+        const catcherWidth = 60;
+        let fallingHearts = [];
+        let catcherScore = 0;
+        let catcherMoveInterval = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            globalShowerInterval = setInterval(spawnHeartParticle, 350);
+            initMemoryGame();
+            
+            // Web Audio API context setup to bypass hardware silence toggles
+            window.addEventListener('click', () => {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) {
+                    const ctx = new AudioContext();
+                    if (ctx.state === 'suspended') ctx.resume();
+                }
+            }, { once: true });
+        });
+
+        // RE-ENGINEERED FORCE PLAY AUDIO FUNCTION WITH LIVE STATUS INTERACTION
+        function startMusic() {
+            const music = document.getElementById('bg-music');
+            const indicator = document.getElementById('music-indicator');
+            music.volume = 0.75; 
+            
+            music.play().then(() => {
+                indicator.innerText = "🎵 Melodious Birthday Music Playing Live ✨";
+                indicator.style.borderColor = "#00ffcc";
+            }).catch(error => {
+                console.log("Primary track block, running forced stream sync.");
+                // Instant hot-swap alternative fallback streaming protocol
+                music.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
+                music.play().then(() => {
+                    indicator.innerText = "🎵 Melodious Music Stream Engaged ✨";
+                });
+            });
+        }
+
+        function checkPassword() {
+            const pass = document.getElementById('vault-key').value.toLowerCase();
+            if (pass === 'love') {
+                startMusic();
+                document.getElementById('page-lock').style.display = 'none';
                 
-                const galleryView = document.getElementById('page-gallery');
-                galleryView.style.display = 'block';
-                setTimeout(() => { galleryView.classList.add('active-view'); }, 50);
+                const overlay = document.getElementById('transition-overlay');
+                const numNode = document.getElementById('evolution-number');
+                const txtNode = document.getElementById('evolution-txt');
+                const finalNode = document.getElementById('evolution-final');
+                
+                overlay.style.display = 'flex';
+                
+                let currentAge = 0;
+                let evolutionInterval = setInterval(() => {
+                    currentAge++;
+                    if(currentAge <= 25) {
+                        numNode.innerText = currentAge;
+                        if(currentAge === 5) txtNode.innerText = "Childhood Sweetheart... 🧸";
+                        if(currentAge === 13) txtNode.innerText = "Growing Beautifully... ✨";
+                        if(currentAge === 18) txtNode.innerText = "Stepping Into The World... 🌸";
+                        if(currentAge === 22) txtNode.innerText = "Building Great Dreams... 💭";
+                    } else {
+                        clearInterval(evolutionInterval);
+                        numNode.style.display = 'none';
+                        txtNode.style.display = 'none';
+                        finalNode.style.display = 'block';
+                        
+                        createExplosionEffect(window.innerWidth/2, window.innerHeight/2);
+                        
+                        setTimeout(() => {
+                            overlay.style.opacity = '0';
+                            setTimeout(() => {
+                                overlay.style.display = 'none';
+                            }, 1000);
+
+                            document.getElementById('ambient-love-line').style.display = 'block'; 
+                            document.getElementById('top-nav').style.display = 'flex';
+                            document.getElementById('love-footer').style.display = 'block';
+                            
+                            renderBlockPuzzle();
+                            initWordSudokuGrid();
+                            switchTab('page-gallery', document.querySelector('.top-nav-btn'));
+                        }, 2000);
+                    }
+                }, 100);
             } else {
-                errorBanner.style.display = 'block';
+                document.getElementById('lock-error').style.display = 'block';
             }
         }
 
-        // Handy Page Navigator Layout
-        function navigateToPage(targetPageId, navElement) {
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            navElement.classList.add('active');
+        function switchTab(pageId, btn) {
+            if(btn.classList.contains('logout-btn')) return;
+            document.querySelectorAll('.top-nav-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.page-view').forEach(p => p.style.display = 'none');
+            btn.classList.add('active');
+            document.getElementById(pageId).style.display = 'block';
+            
+            if(pageId !== 'page-arcade') {
+                clearInterval(catcherTimer);
+            }
+            window.scrollTo(0,0);
+        }
 
-            const currentActiveView = document.querySelector('.page-view.active-view');
-            if (currentActiveView) {
-                currentActiveView.classList.remove('active-view');
-                currentActiveView.style.display = 'none';
+        function openLetterDirectly() {
+            switchTab('page-vault', document.querySelectorAll('.top-nav-btn')[2]);
+        }
+
+        function revealReason() {
+            document.getElementById('lounge-text').innerText = reasonsList[currentReasonIdx];
+            createExplosionEffect(window.innerWidth / 2, window.innerHeight / 2);
+            currentReasonIdx = (currentReasonIdx + 1) % reasonsList.length;
+        }
+
+        function switchArcadeGame(gameKey, btn) {
+            document.querySelectorAll('.arcade-tab-btn').forEach(b => b.classList.remove('active-sub'));
+            btn.classList.add('active-sub');
+            
+            document.getElementById('sub-game-match').style.display = 'none';
+            document.getElementById('sub-game-rush').style.display = 'none';
+            document.getElementById('sub-game-puzzle').style.display = 'none';
+            document.getElementById('sub-game-sudoku').style.display = 'none';
+            document.getElementById('sub-game-catcher').style.display = 'none';
+            
+            clearInterval(catcherTimer);
+
+            if(gameKey === 'mat') {
+                document.getElementById('sub-game-match').style.display = 'flex';
+                initMemoryGame();
+            } else if(gameKey === 'rsh') {
+                document.getElementById('sub-game-rush').style.display = 'flex';
+                resetReactorCoreGame();
+            } else if(gameKey === 'puz') {
+                document.getElementById('sub-game-puzzle').style.display = 'flex';
+                initBlockPuzzle();
+            } else if(gameKey === 'sud') {
+                document.getElementById('sub-game-sudoku').style.display = 'flex';
+                initWordSudokuGrid();
+            } else if(gameKey === 'cth') {
+                document.getElementById('sub-game-catcher').style.display = 'flex';
+                initCatcherGame();
+            }
+        }
+
+        /* --- GAME 1: MATCHING MATRIX --- */
+        function initMemoryGame() {
+            document.getElementById('match-msg').innerText = "";
+            selectedCards = [];
+            canFlip = true;
+            memoryIcons.sort(() => Math.random() - 0.5);
+            
+            const grid = document.getElementById('arcade-memory-grid');
+            grid.innerHTML = "";
+            
+            for(let i=0; i<16; i++) {
+                const card = document.createElement('div');
+                card.classList.add('memory-card');
+                card.dataset.index = i;
+                card.dataset.icon = memoryIcons[i];
+                card.innerText = "?";
+                card.onclick = () => flipMemoryCard(card);
+                grid.appendChild(card);
+            }
+        }
+
+        function flipMemoryCard(card) {
+            if(!canFlip || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+            card.classList.add('flipped');
+            card.innerText = card.dataset.icon;
+            selectedCards.push(card);
+            
+            if(selectedCards.length === 2) {
+                canFlip = false;
+                checkMemoryMatch();
+            }
+        }
+
+        function checkMemoryMatch() {
+            const [c1, c2] = selectedCards;
+            if(c1.dataset.icon === c2.dataset.icon) {
+                c1.classList.add('matched');
+                c2.classList.add('matched');
+                selectedCards = [];
+                canFlip = true;
                 
-                const targetPage = document.getElementById(targetPageId);
-                targetPage.style.display = 'block';
-                setTimeout(() => { targetPage.classList.add('active-view'); }, 50);
-                window.scrollTo(0,0);
+                if(document.querySelectorAll('.memory-card.matched').length === 16) {
+                    document.getElementById('match-msg').innerHTML = "💖 Perfect Match! Chapter 26 Aligned! 🎉";
+                    triggerArcadeVictoryEffects();
+                }
+            } else {
+                setTimeout(() => {
+                    c1.classList.remove('flipped'); c1.innerText = "?";
+                    c2.classList.remove('flipped'); c2.innerText = "?";
+                    selectedCards = []; canFlip = true;
+                }, 800);
             }
         }
 
-        // Lounges Custom Data Mapping
-        const loungeLog = {
-            coke: "🥤 Crisp & Effervescent! It feels like you popped open a perfectly chilled, fizzy bottle of Coke. Refreshing, bright words rush directly from the bottle layout to remind you that you are my absolute favorite sweet energy spike every day!",
-            tiktok: "📱 Camera Framework Active! Shifting frame configurations immediately... Custom words glide right out from your ideal smartphone screen layout. Nobody creates aesthetic transition drafts as flawlessly beautiful as you do, Maya!",
-            samosa: "🥟 Warm & Crispy! A gentle curl of fresh milk-tea steam fills the room layout. Reminding us of our very first food plate together—spicy samosas paired with sweet conversations that locked my heart to yours forever."
+        /* --- GAME 2: ADRENALINE CLICKER CORES --- */
+        function resetReactorCoreGame() {
+            clickerScore = 0;
+            document.getElementById('rush-msg').innerText = "Score: 0 / 26";
+            document.getElementById('reactor-progress-bar').style.width = "0%";
+            document.getElementById('reactor-score-node').innerText = "TAP!";
+        }
+
+        function handleReactorCoreClick() {
+            if(clickerScore >= 26) return;
+            clickerScore++;
+            document.getElementById('rush-msg').innerText = `Score: ${clickerScore} / 26`;
+            
+            let pct = (clickerScore / 26) * 100;
+            document.getElementById('reactor-progress-bar').style.width = `${pct}%`;
+            document.getElementById('reactor-score-node').innerText = `+${clickerScore}`;
+
+            if(clickerScore === 26) {
+                document.getElementById('rush-msg').innerHTML = "⚡ Level 26 Burst Complete! You Are Amazing! ❤️";
+                triggerArcadeVictoryEffects();
+            }
+        }
+
+        /* --- GAME 3: PRO 1-TAP SLIDING BLOCK --- */
+        function initBlockPuzzle() {
+            puzState = [1, 2, 3, 4, 5, 6, 7, "", 8]; 
+            document.getElementById('puzzle-msg').innerText = "";
+            renderBlockPuzzle();
+        }
+
+        function renderBlockPuzzle() {
+            const board = document.getElementById('arcade-puzzle-board');
+            board.innerHTML = "";
+            puzState.forEach((val, idx) => {
+                const tile = document.createElement('div');
+                tile.classList.add('puzzle-tile');
+                if(val === "") {
+                    tile.classList.add('empty');
+                } else {
+                    tile.innerText = val;
+                    tile.onclick = () => shiftTile(idx);
+                }
+                board.appendChild(tile);
+            });
+        }
+
+        function shiftTile(idx) {
+            const emptyIdx = puzState.indexOf("");
+            const validMoves = [idx - 1, idx + 1, idx - 3, idx + 3];
+            if(validMoves.includes(emptyIdx)) {
+                if((idx % 3 === 0 && emptyIdx === idx - 1) || (idx % 3 === 2 && emptyIdx === idx + 1)) return;
+                puzState[emptyIdx] = puzState[idx]; puzState[idx] = "";
+                renderBlockPuzzle();
+                
+                if(puzState.slice(0,8).every((v,i) => v === i+1)) {
+                    document.getElementById('puzzle-msg').innerHTML = "❤️ Matrix Aligned! Happy 26th Birthday! 🎉";
+                    triggerArcadeVictoryEffects();
+                }
+            }
+        }
+
+        /* --- GAME 4: WORD SUDOKU --- */
+        const sudokuSolution = ['H','E','A','R','A','R','H','E','E','H','R','A','R','A','E','H'];
+        const sudokuPuzzleTemplate = ['H','E','A','R','A','R','H','','E','H','R','A','R','','E','H'];
+
+        function initWordSudokuGrid() {
+            document.getElementById('sudoku-msg').innerText = "";
+            const board = document.getElementById('arcade-sudoku-board');
+            board.innerHTML = "";
+            
+            sudokuPuzzleTemplate.forEach((val, idx) => {
+                const cell = document.createElement('input');
+                cell.classList.add('sudoku-cell');
+                cell.type = "text"; cell.maxLength = 1;
+                if(val !== '') {
+                    cell.value = val; cell.disabled = true;
+                } else {
+                    cell.value = ""; cell.placeholder = "?";
+                }
+                cell.id = `sud-cell-${idx}`;
+                board.appendChild(cell);
+            });
+        }
+
+        function checkSudokuSolution() {
+            let correctCount = 0;
+            for(let i=0; i<16; i++) {
+                const cellVal = document.getElementById(`sud-cell-${i}`).value.toUpperCase().trim();
+                if(cellVal === sudokuSolution[i]) correctCount++;
+            }
+            if(correctCount === 16) {
+                document.getElementById('sudoku-msg').innerHTML = "💖 Sudoku Intact! Level 26 Complete! 🎉";
+                triggerArcadeVictoryEffects();
+            } else {
+                document.getElementById('sudoku-msg').innerText = "❌ Hint: Missing entries are letters 'E' and 'A'!";
+            }
+        }
+
+        /* --- GAME 5: LOVE CATCHER HIGH SPEED SCALED RUN --- */
+        function initCatcherGame() {
+            document.getElementById('catcher-msg').innerText = "Score: 0 / 26";
+            clearInterval(catcherTimer);
+            catcherScore = 0; catcherX = 90; fallingHearts = [];
+            
+            const canvas = document.getElementById('catcher-canvas');
+            canvas.onclick = (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                if(clickX < rect.width / 2) {
+                    catcherX = Math.max(0, catcherX - 25);
+                } else {
+                    catcherX = Math.min(240 - catcherWidth, catcherX + 25);
+                }
+            };
+            catcherTimer = setInterval(updateCatcherLoop, 40);
+        }
+
+        function startCatcherMove(dir) {
+            clearInterval(catcherMoveInterval);
+            catcherMoveInterval = setInterval(() => {
+                catcherX += dir;
+                if(catcherX < 0) catcherX = 0;
+                if(catcherX > 240 - catcherWidth) catcherX = 240 - catcherWidth;
+            }, 40);
+        }
+
+        function stopCatcherMove() { clearInterval(catcherMoveInterval); }
+
+        function updateCatcherLoop() {
+            const canvas = document.getElementById('catcher-canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, 240, 240);
+
+            let calculatedSpeedModifier = 3 + (catcherScore * 0.15);
+
+            if(Math.random() < 0.05 && fallingHearts.length < 5) {
+                fallingHearts.push({
+                    x: Math.random() * 210 + 10,
+                    y: 0,
+                    speed: Math.random() * 2 + calculatedSpeedModifier,
+                    emoji: ['❤️','💖','✨','🎂'][Math.floor(Math.random() * 4)]
+                });
+            }
+
+            ctx.fillStyle = '#00ffcc';
+            ctx.shadowBlur = 10; ctx.shadowColor = '#00ffcc';
+            ctx.fillRect(catcherX, 220, catcherWidth, 12);
+            ctx.shadowBlur = 0;
+
+            for(let i = fallingHearts.length - 1; i >= 0; i--) {
+                let h = fallingHearts[i];
+                h.y += h.speed;
+                ctx.font = "18px serif";
+                ctx.fillText(h.emoji, h.x, h.y);
+
+                if(h.y >= 210 && h.y <= 230 && h.x >= catcherX - 10 && h.x <= catcherX + catcherWidth + 5) {
+                    fallingHearts.splice(i, 1);
+                    catcherScore++;
+                    document.getElementById('catcher-msg').innerText = `Score: ${catcherScore} / 26`;
+                    
+                    if(catcherScore >= 26) {
+                        document.getElementById('catcher-msg').innerHTML = "👑 Era 26 Clear! Full Stack! ❤️";
+                        triggerArcadeVictoryEffects();
+                        clearInterval(catcherTimer);
+                    }
+                    continue;
+                }
+                if(h.y > 240) fallingHearts.splice(i, 1);
+            }
+        }
+
+        function triggerArcadeVictoryEffects() {
+            const midX = window.innerWidth / 2;
+            createExplosionEffect(midX, window.innerHeight / 2);
+            spawnFloatingBanner(midX, window.innerHeight / 2, "CHAPTER 26 IS UNLOCKED! 💖");
+            for(let i=0; i<26; i++) {
+                setTimeout(() => spawnHeartParticle('💖'), i * 60);
+            }
+        }
+
+        /* --- LOUNGE LOGGER ENGINE --- */
+        const textLogs = {
+            coke: "🥤 Refreshing! Fresh bubbles rush up directly from the cold bottle. You give me that same sweet energy every single day, my love!",
+            tiktok: "📱 You are effortlessly stunning! When you make your video drafts, your pretty face and angelic features show how naturally beautiful you are, Maya!",
+            samosa: "🥟 Sweet memories! Eating spicy samosas and drinking hot tea together was perfect because I got to stare directly into your gorgeous eyes and look at your stunning smile.",
+            photography: "📸 Perfect click! You capture beautiful things effortlessly, but to me, you are always the prettiest sight in existence."
         };
 
-        // Interactive Fluid Particle Animation Triggers
-        function displayLoungeNote(key) {
-            const displayField = document.getElementById('lounge-screen-text');
-            const screenBox = document.getElementById('lounge-screen');
+        function pressLounge(itemKey) {
+            document.getElementById('lounge-text').innerText = textLogs[itemKey];
+            let itemEmoji = '❤️';
+            if (itemKey === 'coke') itemEmoji = '🫧';
+            if (itemKey === 'tiktok') itemEmoji = '📱';
+            if (itemKey === 'samosa') itemEmoji = '☕';
+            for (let i = 0; i < 26; i++) spawnHeartParticle(itemEmoji);
+        }
+
+        function triggerPortalSurprise() {
+            startMusic(); 
+            const centerX = window.innerWidth / 2;
+            const baseY = window.innerHeight / 2;
+
+            const bannerSequence = [
+                { text: "Happy Birthday Sushmita 🎉", offset: -80 },
+                { text: "Welcome to Chapter 26 💖", offset: -20 },
+                { text: "Happy Birthday Sushmita ✨", offset: 40 },
+                { text: "16 June 2026 🎂", offset: 100 }
+            ];
+
+            bannerSequence.forEach((item, index) => {
+                setTimeout(() => {
+                    createExplosionEffect(centerX + (index * 15 - 20), baseY + item.offset);
+                    spawnFloatingBanner(centerX, baseY + item.offset, item.text);
+                }, index * 400); 
+            });
+        }
+
+        function handleSystemLogout() {
+            clearInterval(catcherTimer);
+            const music = document.getElementById('bg-music');
+            music.pause(); music.currentTime = 0;
+            document.getElementById('music-indicator').innerText = "🎵 Tap to Turn On Birthday Music 🎵";
             
-            displayField.style.opacity = '0';
-            setTimeout(() => {
-                displayField.innerText = loungeLog[key] || "✨ Extracted Logs... ✨";
-                displayField.style.opacity = '1';
-            }, 150);
+            document.getElementById('vault-key').value = '';
+            document.getElementById('lock-error').style.display = 'none';
+            document.getElementById('ambient-love-line').style.display = 'none';
+            document.getElementById('top-nav').style.display = 'none';
+            document.getElementById('love-footer').style.display = 'none';
+            
+            document.querySelectorAll('.page-view').forEach(p => p.style.display = 'none');
+            document.getElementById('page-lock').style.display = 'flex';
+            
+            document.getElementById('evolution-number').style.display = 'block';
+            document.getElementById('evolution-txt').style.display = 'block';
+            document.getElementById('evolution-final').style.display = 'none';
+            document.getElementById('transition-overlay').style.opacity = '1';
+            
+            window.scrollTo(0,0);
+        }
 
-            // Spawn Custom Pop Particle Graphics based on selection
-            let symbol = '🎈';
-            if (key === 'coke') symbol = '🫧';
-            if (key === 'tiktok') symbol = '📱';
-            if (key === 'samosa') symbol = '☕';
+        function handleLoveFooterClick() {
+            loveShowerBurst();
+        }
 
-            for (let i = 0; i < 12; i++) {
-                const bubble = document.createElement('span');
-                bubble.classList.add('lounge-particle');
-                bubble.innerText = symbol;
-                bubble.style.left = (Math.random() * 80 + 10) + '%';
-                bubble.style.animationDelay = (Math.random() * 0.4) + 's';
-                bubble.style.fontSize = (14 + Math.random() * 12) + 'px';
-                
-                screenBox.appendChild(bubble);
-                setTimeout(() => { bubble.remove(); }, 2000);
+        function spawnHeartParticle(customSymbol) {
+            const p = document.createElement('div');
+            p.classList.add('shower-item');
+            const generalSymbols = ['❤️', '💖', '👑', '✨', '🌹', '🎂'];
+            p.innerText = customSymbol ? customSymbol : generalSymbols[Math.floor(Math.random() * generalSymbols.length)];
+            p.style.left = Math.random() * 95 + 'vw';
+            p.style.fontSize = (Math.random() * 14 + 16) + 'px';
+            document.body.appendChild(p);
+            setTimeout(() => { p.remove(); }, 3000);
+        }
+
+        function loveShowerBurst() {
+            const middleX = window.innerWidth / 2;
+            createExplosionEffect(middleX, window.innerHeight - 80);
+            for (let i = 0; i < 26; i++) {
+                setTimeout(spawnHeartParticle, i * 30);
             }
         }
 
-        // Interactive Firecrackers System
-        function igniteFirecrackers() {
-            const sourceX = window.innerWidth / 2;
-            const sourceY = window.innerHeight - 120;
-            const sparkPalettes = ['#f40009', '#ff4d5a', '#ffb3c6', '#ffffff', '#ffd700'];
-
-            for (let i = 0; i < 50; i++) {
+        function createExplosionEffect(x, y) {
+            const dynamicColors = ['#f40009', '#ff4d5a', '#ffd700', '#00ffcc', '#ffffff'];
+            for (let i = 0; i < 30; i++) {
                 const spark = document.createElement('div');
-                spark.classList.add('sparkle-burst');
-                spark.style.left = sourceX + 'px';
-                spark.style.top = sourceY + 'px';
-                spark.style.backgroundColor = sparkPalettes[Math.floor(Math.random() * sparkPalettes.length)];
-
-                const vectorAngle = Math.random() * Math.PI * 2;
-                const radiusBurst = 30 + Math.random() * 150;
-                spark.style.setProperty('--x', `${Math.cos(vectorAngle) * radiusBurst}px`);
-                spark.style.setProperty('--y', `${Math.sin(vectorAngle) * radiusBurst}px`);
-
+                spark.classList.add('sparkle');
+                spark.style.left = x + 'px'; spark.style.top = y + 'px';
+                spark.style.backgroundColor = dynamicColors[Math.floor(Math.random() * dynamicColors.length)];
+                
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 10 + Math.random() * 120;
+                spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+                spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+                
                 document.body.appendChild(spark);
-                setTimeout(() => { spark.remove(); }, 800);
+                setTimeout(() => { spark.remove(); }, 1000);
             }
+        }
+
+        function spawnFloatingBanner(x, y, textString) {
+            const textNode = document.createElement('div');
+            textNode.classList.add('birthday-banner');
+            textNode.innerText = textString;
+            textNode.style.top = (y - 30) + 'px';
+            document.body.appendChild(textNode);
+            setTimeout(() => { textNode.remove(); }, 2500);
         }
     </script>
 </body>
