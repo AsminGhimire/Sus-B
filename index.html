@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Secret: For Sushmita's Eyes Only ❤️</title>
-    <!-- Elegant and Girly Fonts -->
+    <!-- Elegant Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* --- DESIGN FRAMEWORK & KEYFRAMES --- */
@@ -12,7 +12,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent; /* Removes ugly flash on mobile tap */
+            -webkit-tap-highlight-color: transparent;
         }
         body {
             font-family: 'Poppins', 'Georgia', serif;
@@ -20,53 +20,39 @@
             color: #fff;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            position: relative;
+            padding-bottom: 90px; /* Space for the handy bottom navigation */
         }
         
-        /* Smooth Global Fade Animation */
         .page-view {
             display: none;
             opacity: 0;
             width: 100%;
             min-height: 100vh;
-            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-            padding: 100px 20px 40px 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            padding: 40px 16px 120px 16px;
         }
         .active-view {
             display: block;
             opacity: 1;
-            position: relative;
         }
 
         /* --- PREMIUM AMBIENT BADGE --- */
         .ambient-asmin-signature {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10000;
+            text-align: center;
             font-family: 'Georgia', serif;
             font-style: italic;
             font-size: 0.9rem;
             color: #ffffff;
             background: rgba(24, 2, 9, 0.85);
-            padding: 10px 20px;
-            border-left: 3px solid #f40009;
-            border-radius: 0 12px 12px 0;
+            padding: 12px;
+            border-bottom: 2px solid #f40009;
             letter-spacing: 1px;
             backdrop-filter: blur(12px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-            animation: softPulse 3s infinite alternate;
             display: none;
-        }
-        @keyframes softPulse {
-            0% { opacity: 0.8; box-shadow: 0 4px 15px rgba(244, 0, 9, 0.2); }
-            100% { opacity: 1; box-shadow: 0 4px 25px rgba(244, 0, 9, 0.5); }
+            margin-bottom: 20px;
         }
 
-        /* --- STAGE 1: ENCRYPTED PORTAL --- */
+        /* --- STAGE 1: PORTAL --- */
         #page-lock {
             background: radial-gradient(circle at center, #1c020b 0%, #050002 100%);
             display: flex;
@@ -78,348 +64,278 @@
             background: rgba(15, 2, 8, 0.65);
             border: 1px solid rgba(244, 0, 9, 0.4);
             backdrop-filter: blur(20px);
-            padding: 50px 30px;
+            padding: 40px 20px;
             border-radius: 24px;
-            max-width: 480px;
+            max-width: 440px;
             width: 100%;
             text-align: center;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            animation: glowingPulse 4s infinite alternate;
-        }
-        @keyframes glowingPulse {
-            0% { border-color: rgba(244, 0, 9, 0.3); box-shadow: 0 0 30px rgba(244, 0, 9, 0.1); }
-            100% { border-color: rgba(244, 0, 9, 0.7); box-shadow: 0 0 50px rgba(244, 0, 9, 0.3); }
         }
         .briefcase-container h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #f40009;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 15px;
             text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(244, 0, 9, 0.5);
         }
         .briefcase-container p {
             color: #ccc;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .briefcase-container input {
-            width: 90%;
+            width: 100%;
             padding: 16px;
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #fff;
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             letter-spacing: 4px;
             outline: none;
             margin-bottom: 25px;
             border-radius: 12px;
-            transition: all 0.3s;
-        }
-        .briefcase-container input:focus {
-            border-color: #f40009;
-            background: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 0 15px rgba(244, 0, 9, 0.3);
         }
         .action-master-btn, .nav-btn {
-            padding: 15px 40px;
+            padding: 14px 35px;
             background: linear-gradient(135deg, #f40009 0%, #9e0006 100%);
             color: white;
             border: none;
             font-weight: bold;
             font-size: 0.9rem;
             cursor: pointer;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-radius: 50px;
             box-shadow: 0 8px 20px rgba(244, 0, 9, 0.3);
-        }
-        .action-master-btn:hover, .nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(244, 0, 9, 0.6);
-            letter-spacing: 3px;
+            width: 100%;
         }
 
-        /* --- GLASS NAVIGATION BAR --- */
+        /* --- MODERN MOBILE BOTTOM NAVIGATION BAR --- */
         .app-nav {
             display: none;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px;
-            background: rgba(11, 2, 5, 0.75);
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(15, 2, 8, 0.92);
             position: fixed;
-            top: 0;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            z-index: 9999;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            flex-wrap: wrap; /* Fixed for smaller mobile widths */
+            height: 75px;
+            z-index: 99999;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            padding-bottom: env(safe-area-inset-bottom); /* iOS Swipe Bar fix */
         }
         .nav-link {
-            color: #aaa;
+            color: #8e7d81;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 10px 18px;
-            border-radius: 30px;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            flex: 1;
+            height: 100%;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
-        .nav-link.active, .nav-link:hover {
-            color: #fff;
-            background: rgba(244, 0, 9, 0.2);
-            border: 1px solid rgba(244, 0, 9, 0.4);
-            text-shadow: 0 0 8px rgba(255,255,255,0.6);
+        .nav-link .nav-icon {
+            font-size: 1.4rem;
+        }
+        .nav-link.active {
+            color: #ff4d5a;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 77, 90, 0.3);
         }
 
-        /* --- STAGE 2: ALBUM (INSTA & CAMERA STYLE) --- */
-        #page-gallery {
-            background: #0b0104;
-        }
+        /* --- STAGE 2: GALLERY --- */
         .section-header {
             text-align: center;
-            margin: 30px 0 50px 0;
+            margin: 10px 0 30px 0;
         }
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             color: #fff;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            font-weight: 400;
+            margin-bottom: 8px;
         }
         .section-header p {
             font-style: italic;
             color: #b3a2a6;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
         .animated-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1140px;
-            margin: 0 auto 60px auto;
-            width: 100%;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        @media(min-width: 768px) {
+            .animated-grid { grid-template-columns: repeat(2, 1fr); max-width: 900px; }
         }
         
-        /* Viewfinder Camera Aesthetic Card */
         .interactive-card {
             background: #110207;
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .interactive-card::before {
-            content: "• REC 4K 60FPS";
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            z-index: 10;
-            font-family: monospace;
-            font-size: 0.75rem;
-            color: #f40009;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 4px 8px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-        }
-        .interactive-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(244, 0, 9, 0.5);
-            box-shadow: 0 20px 40px rgba(244, 0, 9, 0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
         .image-wrapper {
             width: 100%;
             height: 380px;
             overflow: hidden;
-            position: relative;
         }
-        .interactive-card img, .interactive-card video {
+        .interactive-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .interactive-card:hover img, .interactive-card:hover video {
-            transform: scale(1.06);
         }
         .card-details {
-            padding: 25px;
-            background: linear-gradient(180deg, rgba(17,2,7,0) 0%, #110207 100%);
+            padding: 20px;
+            background: #110207;
         }
         .card-details h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #fff;
-            margin-bottom: 8px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin-bottom: 6px;
         }
         .card-details p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #b3a2a6;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Lyric Ticker Block */
         .lyric-ticker {
             background: linear-gradient(135deg, #24020d 0%, #110207 100%);
             border: 1px solid rgba(244, 0, 9, 0.3);
-            padding: 45px 30px;
+            padding: 30px 20px;
             text-align: center;
-            border-radius: 24px;
-            max-width: 850px;
-            margin: 60px auto;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            position: relative;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 500px;
         }
         .lyric-ticker h3 {
-            font-size: 1.6rem;
-            font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
             color: #ffb3c1;
-            font-weight: 400;
-        }
-        .lyric-ticker p {
-            font-size: 0.85rem;
-            color: #8c767b;
-            letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
-        /* --- STAGE 3: COKE & LOUNGE HUB --- */
-        #page-cafe {
-            background: linear-gradient(180deg, #0b0104 0%, #19020a 100%);
-        }
+        /* --- STAGE 3: COZY LOUNGE (MOBILE ACCESSIBLE) --- */
         .menu-board {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            max-width: 950px;
-            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 500px;
+            margin: 20px auto;
         }
         .food-item-button {
-            background: rgba(25, 2, 10, 0.6);
+            background: rgba(25, 2, 10, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 25px 20px;
-            width: 200px;
+            border-radius: 16px;
+            padding: 15px 10px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
+            transition: transform 0.2s;
         }
-        .food-item-button:hover {
-            transform: translateY(-10px) scale(1.05);
-            background: rgba(244, 0, 9, 0.15);
+        .food-item-button:active {
+            transform: scale(0.95);
             border-color: #f40009;
-            box-shadow: 0 15px 35px rgba(244, 0, 9, 0.25);
         }
         .food-item-button .emoji {
-            font-size: 3.2rem;
-            margin-bottom: 12px;
-            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
-            transition: transform 0.3s;
-        }
-        .food-item-button:hover .emoji {
-            transform: rotate(10deg) scale(1.1);
+            font-size: 2.2rem;
+            margin-bottom: 6px;
         }
         .food-item-button span {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             font-weight: bold;
-            letter-spacing: 1.5px;
-            color: #fff;
+            color: #ecd6da;
             text-align: center;
+            letter-spacing: 0.5px;
         }
+        
+        /* Fixed Theater Screen Height to Prevent Mobile Content Hidden/Jumping */
         .theater-screen {
             background: #040002;
-            border: 1px solid rgba(244, 0, 9, 0.3);
+            border: 2px solid rgba(244, 0, 9, 0.4);
             border-radius: 20px;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 45px 30px;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
             text-align: center;
-            box-shadow: inset 0 0 40px rgba(244, 0, 9, 0.1), 0 20px 50px rgba(0,0,0,0.8);
-            min-height: 160px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            min-height: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: hidden;
         }
         .theater-screen p {
-            font-size: 1.25rem;
+            font-size: 0.95rem;
             color: #ecd6da;
-            line-height: 1.8;
+            line-height: 1.6;
             font-style: italic;
-            transition: opacity 0.3s;
+            z-index: 5;
+        }
+
+        /* Ambient Dynamic Effect Bubbles */
+        .lounge-particle {
+            position: absolute;
+            bottom: -20px;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 2;
+            animation: particleRise 2s linear forwards;
+        }
+        @keyframes particleRise {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            20% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(-160px) scale(1.2); opacity: 0; }
+        }
+
+        /* Handy Core Navigation Button Placement */
+        .handy-holder {
+            max-width: 500px;
+            margin: 25px auto;
         }
 
         /* --- STAGE 4: VAULT SCROLL --- */
-        #page-vault {
-            background: #060003;
-            text-align: center;
-        }
         .scroll-letter {
             background: #fdfbf7;
             color: #1a1113;
-            max-width: 680px;
-            margin: 50px auto;
-            padding: 65px 45px;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 40px 20px;
             border-radius: 16px;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.8);
-            text-align: left;
-            line-height: 2;
-            font-size: 1.15rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            line-height: 1.8;
+            font-size: 1rem;
             border-top: 6px solid #f40009;
-            position: relative;
         }
         .scroll-letter p {
-            margin-bottom: 22px;
+            margin-bottom: 16px;
             font-family: 'Georgia', serif;
         }
-        .scroll-letter::before {
-            content: "🥤 ❤️ 📸";
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.4rem;
-            background: #060003;
-            padding: 0 20px;
-            border-radius: 30px;
-        }
         
-        /* Mini Custom SVG Coca-Cola Bottle Icon */
-        .coke-icon-inline {
-            display: inline-block;
-            vertical-align: middle;
-            width: 18px;
-            height: 32px;
-            margin: 0 4px;
-            filter: drop-shadow(0 2px 4px rgba(244,0,9,0.4));
-        }
-
         .cinema-vlog {
-            max-width: 850px;
-            margin: 50px auto;
+            max-width: 500px;
+            margin: 30px auto;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
             aspect-ratio: 16/9;
             background-color: #000;
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
         }
         .cinema-vlog iframe {
@@ -428,111 +344,66 @@
             border: 0;
         }
 
-        /* --- INTERACTIVE LOVE SURPRISE SYSTEM --- */
+        /* --- STICKY LOVE TRIGGER --- */
         .sticky-love-container {
             position: fixed;
-            bottom: 20px;
+            bottom: 90px; /* Aligned safely right above bottom tabs */
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
-            max-width: 420px;
+            max-width: 500px;
             z-index: 10005;
-            display: none; /* Turned on post login authentication */
+            display: none;
         }
         .asmin-love-btn {
             background: linear-gradient(45deg, #f40009, #ff4d5a);
             color: white;
-            border: 2px solid rgba(255,255,255,0.2);
-            padding: 15px 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 14px;
             font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(244, 0, 9, 0.5);
+            box-shadow: 0 8px 20px rgba(244, 0, 9, 0.5);
             cursor: pointer;
-            transition: all 0.2s ease;
             width: 100%;
             letter-spacing: 1px;
             text-transform: uppercase;
-            animation: interactivePulse 2s infinite;
-        }
-        .asmin-love-btn:active {
-            transform: scale(0.96);
-            box-shadow: 0 4px 12px rgba(244, 0, 9, 0.4);
-        }
-        @keyframes interactivePulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); box-shadow: 0 12px 30px rgba(244, 0, 9, 0.7); }
-            100% { transform: scale(1); }
         }
 
-        /* Dynamic Engine Particles */
+        /* Particle Burst Engine */
         .sparkle-burst {
             position: fixed;
-            width: 7px;
-            height: 7px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             pointer-events: none;
             z-index: 100000;
-            animation: firecrackerBlast 1s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+            animation: firecrackerBlast 0.8s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
         }
         .interactive-heart {
             position: fixed;
             pointer-events: none;
             z-index: 100000;
-            animation: heartScreenFloat 2.5s ease-out forwards;
+            animation: heartScreenFloat 2.2s ease-out forwards;
         }
-
         @keyframes firecrackerBlast {
             0% { transform: translate(0, 0) scale(1.5); opacity: 1; }
             100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
         }
         @keyframes heartScreenFloat {
-            0% { transform: translateY(10vh) translateX(0) scale(0); opacity: 0; }
-            15% { opacity: 1; transform: translateY(0) translateX(0) scale(1.3); }
-            100% { transform: translateY(-95vh) translateX(var(--driftX)) scale(0.6) rotate(var(--rot)); opacity: 0; }
-        }
-
-        /* --- SPARKLING UPWARD RISING SYSTEM --- */
-        .shower-item {
-            position: fixed;
-            bottom: -60px;
-            pointer-events: none;
-            z-index: 99999;
-            white-space: nowrap;
-        }
-        .shower-text {
-            color: #f40009;
-            font-weight: 400;
-            font-style: italic;
-            font-family: 'Georgia', serif;
-            font-size: 1.3rem;
-            text-shadow: 0 0 15px rgba(244, 0, 9, 0.7);
-            letter-spacing: 2px;
-        }
-        
-        @keyframes elegantSlowRise {
-            0% { transform: translateY(0) scale(0.6) rotate(-8deg); opacity: 0; }
-            15% { opacity: 0.9; }
-            80% { opacity: 0.9; }
-            100% { transform: translateY(-110vh) scale(1.1) rotate(8deg); opacity: 0; }
-        }
-        @keyframes heartFastRise {
-            0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 0; }
-            15% { opacity: 1; }
-            85% { opacity: 1; }
-            100% { transform: translateY(-110vh) scale(1.3) rotate(180deg); opacity: 0; }
+            0% { transform: translateY(10vh) scale(0); opacity: 0; }
+            15% { opacity: 1; transform: translateY(0) scale(1.2); }
+            100% { transform: translateY(-90vh) translateX(var(--driftX)) scale(0.6) rotate(var(--rot)); opacity: 0; }
         }
 
         footer {
-            margin-top: 80px;
-            padding: 40px 0 110px 0; /* Expanded padding to clear sticky action button area layout */
+            padding: 20px 0 40px 0;
             color: #6b5458;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(255,255,255,0.03);
+            font-size: 0.75rem;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -542,119 +413,87 @@
         🌹 Asmin loves you to the moon and back...
     </div>
 
+    <!-- LOCK SCREEN PORTAL -->
     <div id="page-lock" class="page-view active-view">
         <div class="briefcase-container">
             <h1>🕵️‍♀️ Target Profile: Sushmita</h1>
-            <p>A specialized cryptographic mainframe has been initialized. Enter our secret lowercase phrase to load your digital birthday interface layout.</p>
-            <p style="color: #f40009; font-weight: bold; font-size: 0.8rem; margin-top: -15px; letter-spacing: 1px;">Hint: Our special lowercase phrase.</p>
+            <p>Enter our secret lowercase phrase to load your layout.</p>
             <input type="password" id="vault-key" placeholder="••••••••">
-            <br>
             <button class="action-master-btn" onclick="unlockMultiPageSystem()">Decrypt Mainframe</button>
-            <div id="lock-error" style="color: #f40009; font-weight: bold; margin-top: 20px; font-size: 0.9rem; display: none;">❌ ACCESS DENIED. Keep investigating, Sushmita! ❤️</div>
+            <div id="lock-error" style="color: #f40009; font-weight: bold; margin-top: 15px; font-size: 0.85rem; display: none;">❌ ACCESS DENIED. Keep trying! ❤️</div>
         </div>
     </div>
 
-    <nav class="app-nav" id="main-navigation-bar">
-        <span class="nav-link active" onclick="navigateToPage('page-gallery', this)">📸 Sushmita's Captures</span>
-        <span class="nav-link" onclick="navigateToPage('page-cafe', this)">🥤 Cozy Lounge</span>
-        <span class="nav-link" onclick="navigateToPage('page-vault', this)">💌 The Archive Scroll</span>
-    </nav>
-
-    <!-- STAGE 2: GALLERY WITH YOUR CUSTOM UPLOADED IMAGES -->
+    <!-- STAGE 2: PICTURES WITH CORRECT INTERACTIVE CARD LINK -->
     <div id="page-gallery" class="page-view">
         <div class="section-header">
-            <h2>The Photographic File of Beautiful Chaos ❤️</h2>
-            <p>Behind every perfect frame and aesthetic TikTok view, there is a girl I adore completely.</p>
+            <h2>Sushmita's Captures 📸</h2>
+            <p>Every frame captures my absolute favorite view in existence.</p>
         </div>
 
         <section class="animated-grid">
-            <!-- Image 1: 1.jpg.jpg -->
+            <!-- Updated Blank Slot 1 as Requested -->
             <div class="interactive-card">
                 <div class="image-wrapper">
-                    <img src="1.jpg.jpg" alt="Sushmita Snapshot 1">
+                    <img src="3.jpg.jpg" alt="Sushmita Snapshot 1">
                 </div>
                 <div class="card-details">
-                    <h4>ISO 100 // Shutter Speed Premium ❤️</h4>
-                    <p>Caught looking absolutely breathtaking on a normal afternoon layout. My favorite model in existence.</p>
+                    <h4>मेरी प्यारी माया 💛</h4>
+                    <p>No matter the angle or setup, you are the most gorgeous reality layout in my life.</p>
                 </div>
             </div>
 
-            <!-- Image 2: 3.jpg.jpg -->
             <div class="interactive-card">
                 <div class="image-wrapper">
-                    <img src="3.jpg.jpg" alt="Sushmita Snapshot 2">
-                </div>
-                <div class="card-details">
-                    <h4>Viral TikTok Draft Layouts ❤️</h4>
-                    <p>Scheming our upcoming aesthetic weekend content changes over long, midnight phone calls.</p>
-                </div>
-            </div>
-
-            <!-- Image 3: 5.jpg.jpg -->
-            <div class="interactive-card">
-                <div class="image-wrapper">
-                    <img src="5.jpg.jpg" alt="Sushmita Snapshot 3">
+                    <img src="5.jpg.jpg" alt="Sushmita Snapshot 2">
                 </div>
                 <div class="card-details">
                     <h4>Pure Cinematic Brilliance ❤️</h4>
-                    <p>The prettiest girl in the world. One single look from you alters my complete reality layout timeline.</p>
+                    <p>One single look from you alters my complete reality timeline layout.</p>
                 </div>
             </div>
 
-            <!-- Image 4: 7.jpg.jpg -->
             <div class="interactive-card">
                 <div class="image-wrapper">
-                    <img src="7.jpg.jpg" alt="Sushmita Snapshot 4">
+                    <img src="7.jpg.jpg" alt="Sushmita Snapshot 3">
                 </div>
                 <div class="card-details">
                     <h4>Better Together Concept ❤️</h4>
-                    <p>Unconditional evidence that holding onto your hand is way better than any viral internet trend.</p>
+                    <p>Boundless proof that holding your hand overrides any trending configuration.</p>
                 </div>
             </div>
 
-            <!-- Image 5: 8.jpg.jpg -->
             <div class="interactive-card">
                 <div class="image-wrapper">
-                    <img src="8.jpg.jpg" alt="Sushmita Snapshot 5">
+                    <img src="8.jpg.jpg" alt="Sushmita Snapshot 4">
                 </div>
                 <div class="card-details">
                     <h4>The Whole Heart Manifestation ❤️</h4>
-                    <p>Every background folder log in my mind belongs strictly to you. Boundless adoration captured in time.</p>
-                </div>
-            </div>
-
-            <!-- Image 6: Image (10).jpg -->
-            <div class="interactive-card">
-                <div class="image-wrapper">
-                    <img src="Image (10).jpg" alt="Sushmita Snapshot 6">
-                </div>
-                <div class="card-details">
-                    <h4>Forever & Always Framework ❤️</h4>
-                    <p>No filters needed. Your natural brightness completely overrides any regular photography setups.</p>
+                    <p>Every background storage directory in my mind belongs strictly to you.</p>
                 </div>
             </div>
         </section>
 
         <div class="lyric-ticker">
             <h3>"तिम्रो मुस्कानले यो मन पग्लिदिन्छ,<br>तिम्रो सामीप्यताले संसारै रङ्गिन्छ..." ❤️</h3>
-            <p>— The continuous loop playing in my head whenever you pop up on my screen, Sushmita.</p>
         </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <button class="nav-btn" onclick="document.querySelectorAll('.nav-link')[1].click()">Proceed to Cozy Lounge 🍿</button>
+        <div class="handy-holder">
+            <button class="nav-btn" onclick="document.getElementById('link-cafe').click()">Proceed to Cozy Lounge 🍿</button>
         </div>
     </div>
 
+    <!-- STAGE 3: COZY LOUNGE (FIXED GRAPHICS & EFFECTS) -->
     <div id="page-cafe" class="page-view">
         <div class="section-header">
-            <h2>Sushmita's Curated Vending System 🍿</h2>
-            <p>Click on your ultimate favorite things to unpack a hyper-personalized transmission note!</p>
+            <h2>Cozy Lounge 🍿</h2>
+            <p>Tap your favorite obsessions to unleash physical pop effects & custom words!</p>
         </div>
 
         <div class="menu-board">
             <div class="food-item-button" onclick="displayLoungeNote('coke')">
                 <div class="emoji">🥤</div>
-                <span>Ice-Cold Coca Cola</span>
+                <span>Ice-Cold Coke</span>
             </div>
             <div class="food-item-button" onclick="displayLoungeNote('tiktok')">
                 <div class="emoji">📱</div>
@@ -662,75 +501,72 @@
             </div>
             <div class="food-item-button" onclick="displayLoungeNote('samosa')">
                 <div class="emoji">🥟</div>
-                <span>Spicy Samosa Chaat</span>
+                <span>Samosa & Tea</span>
             </div>
             <div class="food-item-button" onclick="displayLoungeNote('photography')">
                 <div class="emoji">📸</div>
-                <span>Aesthetic Pictures</span>
+                <span>Aesthetics</span>
             </div>
         </div>
 
-        <div class="theater-screen">
-            <p id="lounge-screen-text">✨ Tap any of your obsessions above to extract historical logs, Sushmita... ✨</p>
+        <div class="theater-screen" id="lounge-screen">
+            <p id="lounge-screen-text">✨ Tap any of your obsessions above to extract historical logs... ✨</p>
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <button class="nav-btn" onclick="document.querySelectorAll('.nav-link')[2].click()">Open Sealed Vault Core 💌</button>
+        <!-- Handy Placed Archive Button right on the core active layout view screen -->
+        <div class="handy-holder">
+            <button class="nav-btn" style="background: linear-gradient(135deg, #ff4d5a 0%, #b50e1a 100%);" onclick="document.getElementById('link-vault').click()">मेरो मायालाई पत्र 💌</button>
         </div>
     </div>
 
+    <!-- STAGE 4: VAULT ARCHIVE -->
     <div id="page-vault" class="page-view">
         <div class="section-header">
-            <h2>The Heart of the Archive ❤️</h2>
+            <h2>मेरो मायालाई पत्र 💌</h2>
             <p>Declassified completely just for your birthday celebration, Sushmita.</p>
         </div>
 
         <article class="scroll-letter">
             <p>To my absolute favorite human, Sushmita,</p>
-            
-            <p>I custom coded this entire interactive network layout from scratch because a generic card could never encompass everything that makes you amazing. Out of the billions of people walking this planet, my eyes, my heart, and my entire soul have permanently anchored themselves to you. You are my home, my peace, and my greatest adventure all wrapped into one perfect human being.</p>
-            
-            <p>From watching you carefully pick out the absolute perfect filter configurations for your pictures, to drafting aesthetic TikTok transitions where you look so drop-dead gorgeous it leaves me completely speechless, to seeing your face light up with that beautiful, priceless smile when opening a fresh, ice-cold bottle of Coca-Cola 
-            <svg class="coke-icon-inline" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4C7 2 9 1 12 1C15 1 17 2 17 4V6H7V4Z" fill="#F40009"/><path d="M6 7H18V11C18 13 16 15 14 16V22C16 23 17 25 17 28V43C17 45 15 47 12 47C9 47 7 45 7 43V28C7 25 8 23 10 22V16C8 15 6 13 6 11V7Z" fill="#F40009"/><path d="M10 7H14V47H10V7Z" fill="rgba(255,255,255,0.2)"/><path d="M6 11C7 13 9 13 10 14C11.5 15.2 11 17 11 19V25C9 27 8 29 8 32C8 36 10 38 12 38C14 38 15 36 15 34" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>—every single layer of your personality is my absolute favorite thing to document in this life.</p>
-            
-            <p>You make ordinary, regular days feel like an elite cinematic production or a classic Nepali love lyric brought to life. There aren't enough words in any language to describe how much I cherish you, how deeply I care for you, and how incredibly proud I am to stand by your side. Today is about highlighting the sheer happiness and unmatched brightness you naturally supply to my world.</p>
-            
+            <p>I custom coded this entire network layout from scratch because a generic card could never encompass everything that makes you amazing. Out of the billions of people walking this planet, my eyes, my heart, and my entire soul have permanently anchored themselves to you. You are my home, my peace, and my greatest adventure all wrapped into one perfect human being.</p>
+            <p>From watching you carefully pick out the absolute perfect filter configurations for your pictures, to drafting aesthetic TikTok transitions where you look so drop-dead gorgeous it leaves me completely speechless, to seeing your face light up with that beautiful, priceless smile when opening a fresh, ice-cold bottle of Coca-Cola—every single layer of your personality is my absolute favorite thing to document in this life.</p>
             <p>Thank you for just being you, for loving me, and for filling my life with a warmth I didn't know existed before you. I am yours through every sunset, every laughter, every frame, and every single lifetime.</p>
-            
-            <p>Endlessly, proudly, and entirely yours,</p>
-            <p style="font-family:'Georgia'; font-style:italic; font-size:1.4rem; color:#f40009; margin-bottom:5px; font-weight:bold; letter-spacing:0.5px;">Asmin</p>
-            <p style="font-weight: bold; margin-top: 5px; color: #f40009; font-size: 1.3rem; letter-spacing: 1px;">I LOVE YOU SO MUCH! ❤️💍</p>
+            <p style="font-family:'Georgia'; font-style:italic; font-size:1.3rem; color:#f40009; margin-bottom:5px; font-weight:bold;">Asmin</p>
+            <p style="font-weight: bold; color: #f40009; font-size: 1.1rem;">I LOVE YOU SO MUCH! ❤️💍</p>
         </article>
 
-        <div class="lyric-ticker" style="background: #110207; max-width: 680px;">
-            <h3 style="color: #ff4d79;">"सामु तिमी हुँदा यसै मुटु धड्किन्छ,<br>तिमी टाढा हुँदा यो मन साह्रै तर्सिन्छ..." ❤️</h3>
-        </div>
-
-        <h3 style="color: #f40009; margin: 60px 0 20px 0; font-size: 1.6rem; letter-spacing: 2px; text-transform: uppercase;">Your Dedicated Birthday Broadcast Layout 🎞️</h3>
         <section class="cinema-vlog">
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         </section>
 
         <footer>
-            <p>Designed with absolute devotion ❤️ Happy Birthday, Sushmita! Forever & Always.</p>
+            <p>Designed with absolute devotion ❤️ Happy Birthday, Sushmita!</p>
         </footer>
     </div>
 
-    <!-- STICKY INTERACTIVE INTERFACE TRIGGER -->
+    <!-- HANDY BOTTOM BAR NAVIGATION LAYOUT -->
+    <nav class="app-nav" id="main-navigation-bar">
+        <div class="nav-link active" id="link-gallery" onclick="navigateToPage('page-gallery', this)">
+            <span class="nav-icon">📸</span>
+            <span>Captures</span>
+        </div>
+        <div class="nav-link" id="link-cafe" onclick="navigateToPage('page-cafe', this)">
+            <span class="nav-icon">🍿</span>
+            <span>Lounge</span>
+        </div>
+        <div class="nav-link" id="link-vault" onclick="navigateToPage('page-vault', this)">
+            <span class="nav-icon">💌</span>
+            <span>पत्र</span>
+        </div>
+    </nav>
+
+    <!-- STICKY BOTTOM BUTTON -->
     <div class="sticky-love-container" id="asmin-interactive-bar">
         <button class="asmin-love-btn" onclick="igniteFirecrackers()">Asmin Loves You 👑</button>
     </div>
 
     <script>
-        let heartInterval;
-        let textInterval;
-
-        function startHeavierClassyShowers() {
-            heartInterval = setInterval(spawnPureRedHeart, 160);
-            textInterval = setInterval(spawnClassyLoveText, 1800);
-        }
-
-        // 1. Password System Verification
+        // Password System Verification
         function unlockMultiPageSystem() {
             const keyInput = document.getElementById('vault-key').value;
             const errorBanner = document.getElementById('lock-error');
@@ -740,141 +576,90 @@
                 document.getElementById('page-lock').classList.remove('active-view');
                 document.getElementById('main-navigation-bar').style.display = 'flex';
                 document.getElementById('asmin-signature-badge').style.display = 'block';
-                document.getElementById('asmin-interactive-bar').style.display = 'block'; // Activate Interactive Engine Bar
+                document.getElementById('asmin-interactive-bar').style.display = 'block';
                 
                 const galleryView = document.getElementById('page-gallery');
                 galleryView.style.display = 'block';
                 setTimeout(() => { galleryView.classList.add('active-view'); }, 50);
-                
-                startHeavierClassyShowers();
             } else {
                 errorBanner.style.display = 'block';
             }
         }
 
-        // 2. Routing Page Layout Engine
+        // Handy Page Navigator Layout
         function navigateToPage(targetPageId, navElement) {
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             navElement.classList.add('active');
 
             const currentActiveView = document.querySelector('.page-view.active-view');
-            
             if (currentActiveView) {
-                currentActiveView.style.opacity = '0';
-                setTimeout(() => {
-                    currentActiveView.classList.remove('active-view');
-                    currentActiveView.style.display = 'none';
-                    
-                    const targetPage = document.getElementById(targetPageId);
-                    targetPage.style.display = 'block';
-                    setTimeout(() => { targetPage.classList.add('active-view'); }, 50);
-                    window.scrollTo(0,0);
-                }, 400);
+                currentActiveView.classList.remove('active-view');
+                currentActiveView.style.display = 'none';
+                
+                const targetPage = document.getElementById(targetPageId);
+                targetPage.style.display = 'block';
+                setTimeout(() => { targetPage.classList.add('active-view'); }, 50);
+                window.scrollTo(0,0);
             }
         }
 
-        // 3. Cafe Hyper-Targeted Messages
-        const curatedLoungeData = {
-            coke: "🥤 Coca-Cola Formula: Just like a perfectly chilled, bubbly Coke on a scorching hot afternoon, you bring a massive rush of sweet energy and refreshing happiness right into my life!",
-            tiktok: "📱 Draft Mainframe: Honestly, scrolling through your secret draft files and recording funny sound alignments with you is my ultimate favorite type of entertainment. You belong on the main feed!",
-            samosa: "🥟 Samosa Chaat Ledger: Tracking down local spots and ordering extra-spicy plates with you is unmatched evidence of the absolute perfect date sequence.",
-            photography: "📸 Lens Resolution: You possess this incredible eye for capturing gorgeous aesthetic scenes... but if you look through my lens, you'll see you are the only portrait that matters."
+        // Lounges Custom Data Mapping
+        const loungeLog = {
+            coke: "🥤 Crisp & Effervescent! It feels like you popped open a perfectly chilled, fizzy bottle of Coke. Refreshing, bright words rush directly from the bottle layout to remind you that you are my absolute favorite sweet energy spike every day!",
+            tiktok: "📱 Camera Framework Active! Shifting frame configurations immediately... Custom words glide right out from your ideal smartphone screen layout. Nobody creates aesthetic transition drafts as flawlessly beautiful as you do, Maya!",
+            samosa: "🥟 Warm & Crispy! A gentle curl of fresh milk-tea steam fills the room layout. Reminding us of our very first food plate together—spicy samosas paired with sweet conversations that locked my heart to yours forever."
         };
 
+        // Interactive Fluid Particle Animation Triggers
         function displayLoungeNote(key) {
             const displayField = document.getElementById('lounge-screen-text');
+            const screenBox = document.getElementById('lounge-screen');
+            
             displayField.style.opacity = '0';
-            
             setTimeout(() => {
-                displayField.innerText = curatedLoungeData[key];
+                displayField.innerText = loungeLog[key] || "✨ Extracted Logs... ✨";
                 displayField.style.opacity = '1';
-            }, 200);
+            }, 150);
 
-            for(let i=0; i<15; i++) { spawnPureRedHeart(); }
+            // Spawn Custom Pop Particle Graphics based on selection
+            let symbol = '🎈';
+            if (key === 'coke') symbol = '🫧';
+            if (key === 'tiktok') symbol = '📱';
+            if (key === 'samosa') symbol = '☕';
+
+            for (let i = 0; i < 12; i++) {
+                const bubble = document.createElement('span');
+                bubble.classList.add('lounge-particle');
+                bubble.innerText = symbol;
+                bubble.style.left = (Math.random() * 80 + 10) + '%';
+                bubble.style.animationDelay = (Math.random() * 0.4) + 's';
+                bubble.style.fontSize = (14 + Math.random() * 12) + 'px';
+                
+                screenBox.appendChild(bubble);
+                setTimeout(() => { bubble.remove(); }, 2000);
+            }
         }
 
-        // 4. Sparkling Upward Risen System
-        function spawnPureRedHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('shower-item');
-            
-            const symbols = ['❤️', '💖', '🥤', '📸', '❤️', '🌹', '✨'];
-            heart.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-            
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = (Math.random() * 16 + 16) + "px";
-            
-            const speed = (Math.random() * 2 + 3.5); 
-            heart.style.animation = `heartFastRise ${speed}s ease-out forwards`;
-            
-            document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, speed * 1000);
-        }
-
-        function spawnClassyLoveText() {
-            const container = document.createElement('div');
-            container.classList.add('shower-item');
-            container.innerHTML = `<span class="shower-text">Sushmita ❤️</span>`;
-            
-            container.style.left = Math.random() * 70 + 15 + "vw";
-            
-            const slowSpeed = (Math.random() * 2.5 + 6);
-            container.style.animation = `elegantSlowRise ${slowSpeed}s ease-in-out forwards`;
-            
-            document.body.appendChild(container);
-            setTimeout(() => { container.remove(); }, slowSpeed * 1000);
-        }
-
-        // 5. NEW: FIRECRACKER & INTERACTIVE SCREEN HEARTS TRIGGER
+        // Interactive Firecrackers System
         function igniteFirecrackers() {
-            // Location points matching button center area 
             const sourceX = window.innerWidth / 2;
-            const sourceY = window.innerHeight - 45;
-            
-            const sparkPalettes = ['#f40009', '#ff4d5a', '#ffb3c6', '#ffffff', '#ffccd5'];
+            const sourceY = window.innerHeight - 120;
+            const sparkPalettes = ['#f40009', '#ff4d5a', '#ffb3c6', '#ffffff', '#ffd700'];
 
-            // A. Instantiate Firecracker Explosive Sparks
-            for (let i = 0; i < 65; i++) {
+            for (let i = 0; i < 50; i++) {
                 const spark = document.createElement('div');
                 spark.classList.add('sparkle-burst');
-                
                 spark.style.left = sourceX + 'px';
                 spark.style.top = sourceY + 'px';
                 spark.style.backgroundColor = sparkPalettes[Math.floor(Math.random() * sparkPalettes.length)];
 
-                // Calculate random trajectory spread (full omnidirectional circle)
                 const vectorAngle = Math.random() * Math.PI * 2;
-                const radiusBurst = 40 + Math.random() * 190;
-                const xVal = Math.cos(vectorAngle) * radiusBurst;
-                const yVal = Math.sin(vectorAngle) * radiusBurst;
-
-                spark.style.setProperty('--x', `${xVal}px`);
-                spark.style.setProperty('--y', `${yVal}px`);
+                const radiusBurst = 30 + Math.random() * 150;
+                spark.style.setProperty('--x', `${Math.cos(vectorAngle) * radiusBurst}px`);
+                spark.style.setProperty('--y', `${Math.sin(vectorAngle) * radiusBurst}px`);
 
                 document.body.appendChild(spark);
-                setTimeout(() => { spark.remove(); }, 1000);
-            }
-
-            // B. Launch Massive Wave of Intermittent Screen Hearts
-            const loveEmojis = ['❤️', '💖', '💕', '🌹', '🥰', '💘', '✨'];
-            for (let j = 0; j < 30; j++) {
-                const activeHeart = document.createElement('div');
-                activeHeart.classList.add('interactive-heart');
-                
-                activeHeart.style.left = Math.random() * 95 + 'vw';
-                activeHeart.style.bottom = '-60px';
-                activeHeart.innerText = loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
-
-                const driftX = (Math.random() - 0.5) * 160; 
-                const rotationalAngle = (Math.random() - 0.5) * 360; 
-                
-                activeHeart.style.setProperty('--driftX', `${driftX}px`);
-                activeHeart.style.setProperty('--rot', `${rotationalAngle}deg`);
-                activeHeart.style.fontSize = (16 + Math.random() * 22) + 'px';
-                activeHeart.style.animationDelay = (Math.random() * 0.35) + 's';
-
-                document.body.appendChild(activeHeart);
-                setTimeout(() => { activeHeart.remove(); }, 2500);
+                setTimeout(() => { spark.remove(); }, 800);
             }
         }
     </script>
