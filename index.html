@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Secret: For Sushmita's Eyes Only ❤️</title>
+    <style>
+        /* --- DESIGN FRAMEWORK & KEYFRAMES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #080104;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Smooth Global Fade Animation */
+        .page-view {
+            display: none;
+            opacity: 0;
+            width: 100%;
+            min-height: 100vh;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            padding: 100px 20px 40px 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .active-view {
+            display: block;
+            opacity: 1;
+            position: relative;
+        }
+
+        /* --- PREMIUM AMBIENT BADGE --- */
+        .ambient-asmin-signature {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #ffffff;
+            background: rgba(24, 2, 9, 0.85);
+            padding: 10px 20px;
+            border-left: 3px solid #f40009;
+            border-radius: 0 12px 12px 0;
+            letter-spacing: 1px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            animation: softPulse 3s infinite alternate;
+            display: none;
+        }
+        @keyframes softPulse {
+            0% { opacity: 0.8; box-shadow: 0 4px 15px rgba(244, 0, 9, 0.2); }
+            100% { opacity: 1; box-shadow: 0 4px 25px rgba(244, 0, 9, 0.5); }
+        }
+
+        /* --- STAGE 1: ENCRYPTED PORTAL --- */
+        #page-lock {
+            background: radial-gradient(circle at center, #1c020b 0%, #050002 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .briefcase-container {
+            background: rgba(15, 2, 8, 0.65);
+            border: 1px solid rgba(244, 0, 9, 0.4);
+            backdrop-filter: blur(20px);
+            padding: 50px 30px;
+            border-radius: 24px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            animation: glowingPulse 4s infinite alternate;
+        }
+        @keyframes glowingPulse {
+            0% { border-color: rgba(244, 0, 9, 0.3); box-shadow: 0 0 30px rgba(244, 0, 9, 0.1); }
+            100% { border-color: rgba(244, 0, 9, 0.7); box-shadow: 0 0 50px rgba(244, 0, 9, 0.3); }
+        }
+        .briefcase-container h1 {
+            font-size: 1.8rem;
+            color: #f40009;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(244, 0, 9, 0.5);
+        }
+        .briefcase-container p {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .briefcase-container input {
+            width: 90%;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            outline: none;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .briefcase-container input:focus {
+            border-color: #f40009;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px rgba(244, 0, 9, 0.3);
+        }
+        .action-master-btn, .nav-btn {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #f40009 0%, #9e0006 100%);
+            color: white;
+            border: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(244, 0, 9, 0.3);
+        }
+        .action-master-btn:hover, .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(244, 0, 9, 0.6);
+            letter-spacing: 3px;
+        }
+
+        /* --- GLASS NAVIGATION BAR --- */
+        .app-nav {
+            display: none;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(11, 2, 5, 0.75);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+        }
+        .nav-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 10px 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #fff;
+            background: rgba(244, 0, 9, 0.2);
+            border: 1px solid rgba(244, 0, 9, 0.4);
+            text-shadow: 0 0 8px rgba(255,255,255,0.6);
+        }
+
+        /* --- STAGE 2: ALBUM (INSTA & CAMERA STYLE) --- */
+        #page-gallery {
+            background: #0b0104;
+        }
+        .section-header {
+            text-align: center;
+            margin: 30px 0 50px 0;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+        .section-header p {
+            font-style: italic;
+            color: #b3a2a6;
+            font-size: 1.1rem;
+        }
+        .animated-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1140px;
+            margin: 0 auto 60px auto;
+        }
+        
+        /* Viewfinder Camera Aesthetic Card */
+        .interactive-card {
+            background: #110207;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .interactive-card::before {
+            content: "• REC 4K 60FPS";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #f40009;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 4px 8px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+        .interactive-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(244, 0, 9, 0.5);
+            box-shadow: 0 20px 40px rgba(244, 0, 9, 0.15);
+        }
+        .image-wrapper {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            position: relative;
+        }
+        .interactive-card img, .interactive-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .interactive-card:hover img, .interactive-card:hover video {
+            transform: scale(1.06);
+        }
+        .card-details {
+            padding: 25px;
+            background: linear-gradient(180deg, rgba(17,2,7,0) 0%, #110207 100%);
+        }
+        .card-details h4 {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-details p {
+            font-size: 0.9rem;
+            color: #b3a2a6;
+            line-height: 1.6;
+        }
+
+        /* Lyric Ticker Block */
+        .lyric-ticker {
+            background: linear-gradient(135deg, #24020d 0%, #110207 100%);
+            border: 1px solid rgba(244, 0, 9, 0.3);
+            padding: 45px 30px;
+            text-align: center;
+            border-radius: 24px;
+            max-width: 850px;
+            margin: 60px auto;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        .lyric-ticker h3 {
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #ffb3c1;
+            font-weight: 400;
+        }
+        .lyric-ticker p {
+            font-size: 0.85rem;
+            color: #8c767b;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- STAGE 3: COKE & LOUNGE HUB --- */
+        #page-cafe {
+            background: linear-gradient(180deg, #0b0104 0%, #19020a 100%);
+        }
+        .menu-board {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 950px;
+            margin: 40px auto;
+        }
+        .food-item-button {
+            background: rgba(25, 2, 10, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 25px 20px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+        .food-item-button:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(244, 0, 9, 0.15);
+            border-color: #f40009;
+            box-shadow: 0 15px 35px rgba(244, 0, 9, 0.25);
+        }
+        .food-item-button .emoji {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+            transition: transform 0.3s;
+        }
+        .food-item-button:hover .emoji {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .food-item-button span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-align: center;
+        }
+        .theater-screen {
+            background: #040002;
+            border: 1px solid rgba(244, 0, 9, 0.3);
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: inset 0 0 40px rgba(244, 0, 9, 0.1), 0 20px 50px rgba(0,0,0,0.8);
+            min-height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .theater-screen p {
+            font-size: 1.25rem;
+            color: #ecd6da;
+            line-height: 1.8;
+            font-style: italic;
+            transition: opacity 0.3s;
+        }
+
+        /* --- STAGE 4: VAULT SCROLL --- */
+        #page-vault {
+            background: #060003;
+            text-align: center;
+        }
+        .scroll-letter {
+            background: #fdfbf7;
+            color: #1a1113;
+            max-width: 680px;
+            margin: 50px auto;
+            padding: 65px 45px;
+            border-radius: 16px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.8);
+            text-align: left;
+            line-height: 2;
+            font-size: 1.15rem;
+            border-top: 6px solid #f40009;
+            position: relative;
+        }
+        .scroll-letter p {
+            margin-bottom: 22px;
+            font-family: 'Georgia', serif;
+        }
+        .scroll-letter::before {
+            content: "🥤 ❤️ 📸";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.4rem;
+            background: #060003;
+            padding: 0 20px;
+            border-radius: 30px;
+        }
+        
+        /* Mini Custom SVG Coca-Cola Bottle Icon */
+        .coke-icon-inline {
+            display: inline-block;
+            vertical-align: middle;
+            width: 18px;
+            height: 32px;
+            margin: 0 4px;
+            filter: drop-shadow(0 2px 4px rgba(244,0,9,0.4));
+        }
+
+        .cinema-vlog {
+            max-width: 850px;
+            margin: 50px auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            aspect-ratio: 16/9;
+            background-color: #000;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .cinema-vlog iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- SPARKLING UPWARD RISING SYSTEM --- */
+        .shower-item {
+            position: fixed;
+            bottom: -60px; /* Aligned below printable frame edge */
+            pointer-events: none;
+            z-index: 99999;
+            white-space: nowrap;
+        }
+        .shower-text {
+            color: #f40009;
+            font-weight: 400;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            font-size: 1.3rem;
+            text-shadow: 0 0 15px rgba(244, 0, 9, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        /* Smooth, slow upward drift animation matrices */
+        @keyframes elegantSlowRise {
+            0% { transform: translateY(0) scale(0.6) rotate(-8deg); opacity: 0; }
+            15% { opacity: 0.9; }
+            80% { opacity: 0.9; }
+            100% { transform: translateY(-110vh) scale(1.1) rotate(8deg); opacity: 0; }
+        }
+        @keyframes heartFastRise {
+            0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.3) rotate(180deg); opacity: 0; }
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            color: #6b5458;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-asmin-signature" id="asmin-signature-badge">
+        🌹 Asmin loves you to the moon and back...
+    </div>
+
+    <div id="page-lock" class="page-view active-view">
+        <div class="briefcase-container">
+            <h1>🕵️‍♀️ Target Profile: Sushmita</h1>
+            <p>A specialized cryptographic mainframe has been initialized. Enter our secret lowercase phrase to load your digital birthday interface layout.</p>
+            <p style="color: #f40009; font-weight: bold; font-size: 0.8rem; margin-top: -15px; letter-spacing: 1px;">Hint: Our special lowercase phrase.</p>
+            <input type="password" id="vault-key" placeholder="••••••••">
+            <br>
+            <button class="action-master-btn" onclick="unlockMultiPageSystem()">Decrypt Mainframe</button>
+            <div id="lock-error" style="color: #f40009; font-weight: bold; margin-top: 20px; font-size: 0.9rem; display: none;">❌ ACCESS DENIED. Keep investigating, Sushmita! ❤️</div>
+        </div>
+    </div>
+
+    <nav class="app-nav" id="main-navigation-bar">
+        <span class="nav-link active" onclick="navigateToPage('page-gallery', this)">📸 Sushmita's Captures</span>
+        <span class="nav-link" onclick="navigateToPage('page-cafe', this)">🥤 Cozy Lounge</span>
+        <span class="nav-link" onclick="navigateToPage('page-vault', this)">💌 The Archive Scroll</span>
+    </nav>
+
+    <div id="page-gallery" class="page-view">
+        <div class="section-header">
+            <h2>The Photographic File of Beautiful Chaos ❤️</h2>
+            <p>Behind every perfect frame and aesthetic TikTok view, there is a girl I adore completely.</p>
+        </div>
+
+        <section class="animated-grid">
+            <div class="interactive-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Sushmita Snapshot">
+                </div>
+                <div class="card-details">
+                    <h4>ISO 100 // Shutter Speed Premium ❤️</h4>
+                    <p>Caught looking absolutely breathtaking on a normal afternoon layout. My favorite model in existence.</p>
+                </div>
+            </div>
+            <div class="interactive-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500" alt="Memories">
+                </div>
+                <div class="card-details">
+                    <h4>Viral TikTok Draft Layouts ❤️</h4>
+                    <p>Scheming our upcoming aesthetic weekend content changes over long, midnight phone calls.</p>
+                </div>
+            </div>
+            <div class="interactive-card">
+                <div class="image-wrapper">
+                    <video src="https://assets.mixkit.co/videos/preview/mixkit-holding-hands-of-a-couple-close-up-34289-large.mp4" controls muted loop></video>
+                </div>
+                <div class="card-details">
+                    <h4>Cinematic Masterpiece Framing ❤️</h4>
+                    <p>Unconditional evidence that holding onto your hand is way better than any viral internet trend.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="lyric-ticker">
+            <h3>"तिम्रो मुस्कानले यो मन पग्लिदिन्छ,<br>तिम्रो सामीप्यताले संसारै रङ्गिन्छ..." ❤️</h3>
+            <p>— The continuous loop playing in my head whenever you pop up on my screen, Sushmita.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <button class="nav-btn" onclick="document.querySelectorAll('.nav-link')[1].click()">Proceed to Cozy Lounge 🍿</button>
+        </div>
+    </div>
+
+    <div id="page-cafe" class="page-view">
+        <div class="section-header">
+            <h2>Sushmita's Curated Vending System 🍿</h2>
+            <p>Click on your ultimate favorite things to unpack a hyper-personalized transmission note!</p>
+        </div>
+
+        <div class="menu-board">
+            <div class="food-item-button" onclick="displayLoungeNote('coke')">
+                <div class="emoji">🥤</div>
+                <span>Ice-Cold Coca Cola</span>
+            </div>
+            <div class="food-item-button" onclick="displayLoungeNote('tiktok')">
+                <div class="emoji">📱</div>
+                <span>TikTok Drafts</span>
+            </div>
+            <div class="food-item-button" onclick="displayLoungeNote('samosa')">
+                <div class="emoji">🥟</div>
+                <span>Spicy Samosa Chaat</span>
+            </div>
+            <div class="food-item-button" onclick="displayLoungeNote('photography')">
+                <div class="emoji">📸</div>
+                <span>Aesthetic Pictures</span>
+            </div>
+        </div>
+
+        <div class="theater-screen">
+            <p id="lounge-screen-text">✨ Tap any of your obsessions above to extract historical logs, Sushmita... ✨</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <button class="nav-btn" onclick="document.querySelectorAll('.nav-link')[2].click()">Open Sealed Vault Core 💌</button>
+        </div>
+    </div>
+
+    <div id="page-vault" class="page-view">
+        <div class="section-header">
+            <h2>The Heart of the Archive ❤️</h2>
+            <p>Declassified completely just for your birthday celebration, Sushmita.</p>
+        </div>
+
+        <article class="scroll-letter">
+            <p>To my absolute favorite human, Sushmita,</p>
+            
+            <p>I custom coded this entire interactive network layout from scratch because a generic card could never encompass everything that makes you amazing. Out of the billions of people walking this planet, my eyes, my heart, and my entire soul have permanently anchored themselves to you. You are my home, my peace, and my greatest adventure all wrapped into one perfect human being.</p>
+            
+            <p>From watching you carefully pick out the absolute perfect filter configurations for your pictures, to drafting aesthetic TikTok transitions where you look so drop-dead gorgeous it leaves me completely speechless, to seeing your face light up with that beautiful, priceless smile when opening a fresh, ice-cold bottle of Coca-Cola 
+            <svg class="coke-icon-inline" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 4C7 2 9 1 12 1C15 1 17 2 17 4V6H7V4Z" fill="#F40009"/><path d="M6 7H18V11C18 13 16 15 14 16V22C16 23 17 25 17 28V43C17 45 15 47 12 47C9 47 7 45 7 43V28C7 25 8 23 10 22V16C8 15 6 13 6 11V7Z" fill="#F40009"/><path d="M10 7H14V47H10V7Z" fill="rgba(255,255,255,0.2)"/><path d="M6 11C7 13 9 13 10 14C11.5 15.2 11 17 11 19V25C9 27 8 29 8 32C8 36 10 38 12 38C14 38 15 36 15 34" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>—every single layer of your personality is my absolute favorite thing to document in this life.</p>
+            
+            <p>You make ordinary, regular days feel like an elite cinematic production or a classic Nepali love lyric brought to life. There aren't enough words in any language to describe how much I cherish you, how deeply I care for you, and how incredibly proud I am to stand by your side. Today is about highlighting the sheer happiness and unmatched brightness you naturally supply to my world.</p>
+            
+            <p>Thank you for just being you, for loving me, and for filling my life with a warmth I didn't know existed before you. I am yours through every sunset, every laughter, every frame, and every single lifetime.</p>
+            
+            <p>Endlessly, proudly, and entirely yours,</p>
+            <p style="font-family:'Georgia'; font-style:italic; font-size:1.4rem; color:#f40009; margin-bottom:5px; font-weight:bold; letter-spacing:0.5px;">Asmin</p>
+            <p style="font-weight: bold; margin-top: 5px; color: #f40009; font-size: 1.3rem; letter-spacing: 1px;">I LOVE YOU SO MUCH! ❤️💍</p>
+        </article>
+
+        <div class="lyric-ticker" style="background: #110207; max-width: 680px;">
+            <h3 style="color: #ff4d79;">"सामु तिमी हुँदा यसै मुटु धड्किन्छ,<br>तिमी टाढा हुँदा यो मन साह्रै तर्सिन्छ..." ❤️</h3>
+        </div>
+
+        <h3 style="color: #f40009; margin: 60px 0 20px 0; font-size: 1.6rem; letter-spacing: 2px; text-transform: uppercase;">Your Dedicated Birthday Broadcast Layout 🎞️</h3>
+        <section class="cinema-vlog">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        </section>
+
+        <footer>
+            <p>Designed with absolute devotion ❤️ Happy Birthday, Sushmita! Forever & Always.</p>
+        </footer>
+    </div>
+
+    <script>
+        let heartInterval;
+        let textInterval;
+
+        function startHeavierClassyShowers() {
+            // Re-targeted upward bubble interval (slowed down slightly for emotional grace)
+            heartInterval = setInterval(spawnPureRedHeart, 160);
+            textInterval = setInterval(spawnClassyLoveText, 1800);
+        }
+
+        // 1. Password System Verification
+        function unlockMultiPageSystem() {
+            const keyInput = document.getElementById('vault-key').value;
+            const errorBanner = document.getElementById('lock-error');
+            const targetPassword = 'love'; 
+
+            if (keyInput.toLowerCase() === targetPassword) {
+                document.getElementById('page-lock').classList.remove('active-view');
+                document.getElementById('main-navigation-bar').style.display = 'flex';
+                document.getElementById('asmin-signature-badge').style.display = 'block';
+                
+                const galleryView = document.getElementById('page-gallery');
+                galleryView.style.display = 'block';
+                setTimeout(() => { galleryView.classList.add('active-view'); }, 50);
+                
+                startHeavierClassyShowers();
+            } else {
+                errorBanner.style.display = 'block';
+            }
+        }
+
+        // 2. Routing Page Layout Engine
+        function navigateToPage(targetPageId, navElement) {
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            navElement.classList.add('active');
+
+            const currentActiveView = document.querySelector('.page-view.active-view');
+            
+            if (currentActiveView) {
+                currentActiveView.style.opacity = '0';
+                setTimeout(() => {
+                    currentActiveView.classList.remove('active-view');
+                    currentActiveView.style.display = 'none';
+                    
+                    const targetPage = document.getElementById(targetPageId);
+                    targetPage.style.display = 'block';
+                    setTimeout(() => { targetPage.classList.add('active-view'); }, 50);
+                    window.scrollTo(0,0);
+                }, 400);
+            }
+        }
+
+        // 3. Cafe Hyper-Targeted Messages
+        const curatedLoungeData = {
+            coke: "🥤 Coca-Cola Formula: Just like a perfectly chilled, bubbly Coke on a scorching hot afternoon, you bring a massive rush of sweet energy and refreshing happiness right into my life!",
+            tiktok: "📱 Draft Mainframe: Honestly, scrolling through your secret draft files and recording funny sound alignments with you is my ultimate favorite type of entertainment. You belong on the main feed!",
+            samosa: "🥟 Samosa Chaat Ledger: Tracking down local spots and ordering extra-spicy plates with you is unmatched evidence of the absolute perfect date sequence.",
+            photography: "📸 Lens Resolution: You possess this incredible eye for capturing gorgeous aesthetic scenes... but if you look through my lens, you'll see you are the only portrait that matters."
+        };
+
+        function displayLoungeNote(key) {
+            const displayField = document.getElementById('lounge-screen-text');
+            displayField.style.opacity = '0';
+            
+            setTimeout(() => {
+                displayField.innerText = curatedLoungeData[key];
+                displayField.style.opacity = '1';
+            }, 200);
+
+            for(let i=0; i<15; i++) { spawnPureRedHeart(); }
+        }
+
+        // 4. Sparkling Upward Risen System
+        function spawnPureRedHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('shower-item');
+            
+            const symbols = ['❤️', '💖', '🥤', '📸', '❤️', '🌹', '✨'];
+            heart.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 16 + 16) + "px";
+            
+            // Slowed down rise time (3.5 to 5.5 seconds) to drift beautifully like carbonation fizz
+            const speed = (Math.random() * 2 + 3.5); 
+            heart.style.animation = `heartFastRise ${speed}s ease-out forwards`;
+            
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, speed * 1000);
+        }
+
+        function spawnClassyLoveText() {
+            const container = document.createElement('div');
+            container.classList.add('shower-item');
+            container.innerHTML = `<span class="shower-text">Sushmita ❤️</span>`;
+            
+            container.style.left = Math.random() * 70 + 15 + "vw";
+            
+            // Slow, majestic floating rise speeds for emotional focus
+            const slowSpeed = (Math.random() * 2.5 + 6);
+            container.style.animation = `elegantSlowRise ${slowSpeed}s ease-in-out forwards`;
+            
+            document.body.appendChild(container);
+            setTimeout(() => { container.remove(); }, slowSpeed * 1000);
+        }
+    </script>
+</body>
+</html>
